@@ -23,6 +23,12 @@ app.get("/books", (req, res) => {
   res.render("books", { books: books });
 });
 
+app.post('/books/add', (req, res) => {
+  if (req.query.q){
+    console.log(reg.query.q)
+    db.push(req.query.q)
+  } 
+})
 
 const listener = app.listen(process.env.PORT, () => {
   console.log("Your app is listening on port " + listener.address().port);
