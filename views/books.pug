@@ -1,8 +1,11 @@
 h2 Trang quản lý sách
 form(action='/books/add' method='post')
+  div
   label Tiêu đề: 
-    input(type='text' name='title')
-    button Thêm sách
+    input(type='text' name='title' required)
+  label Mô tả:
+    input(type='text' name='description')
+  button(type='submit') Thêm sách
 h3 Danh mục đầu sách
 ul
   each book in books

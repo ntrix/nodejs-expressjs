@@ -24,9 +24,14 @@ app.get("/books", (req, res) => {
 });
 
 app.post('/books/add', (req, res) => {
-  if (req.query.q){
-    console.log(reg.query.q)
-    db.push(req.query.q)
+  if (req.body.title.length){
+    console.log(req.body.title)
+    db.push({
+      id: books.length + 1,
+      title: req.body.title
+            
+    }).write();
+    res.redirect('back');
   } 
 })
 
