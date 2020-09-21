@@ -1,12 +1,16 @@
-h2 Books management page
-form(action='')
-  label Book title
-  input(type='text' name='title')
-    button Add this book
-h3 current list of books
+h2 Trang quản lý sách
+form(action='/books/add' method='post')
+  label Tên sách
+    input(type='text' name='title')
+    button Thêm sách
+h3 Danh mục đầu sách
 ul
   each book in books
-    li Title: #{book.title} <br>
-      span Description: #{book.description} &nbsp;
-        a(href='#')
+    li
+      div
+        a(href='/books/upd')
+          button Sửa
+        span &nbsp; : #{book.title} &nbsp;
+        a(href='/books/del')
           button Xoá
+      div Mô tả: #{book.description}
