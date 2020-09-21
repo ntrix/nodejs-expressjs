@@ -28,8 +28,19 @@ app.post('/books/add', (req, res) => {
     console.log(req.body.title)
     db.push({
       id: books.length + 1,
-      title: req.body.title
-            
+      title: req.body.title,
+      description: req.body.description,
+    }).write();
+    res.redirect('back');
+  } 
+})
+
+app.post('/books/del', (req, res) => {
+
+    db.remove({
+      id: books.length + 1,
+      title: req.body.title,
+      description: req.body.description,
     }).write();
     res.redirect('back');
   } 
