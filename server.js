@@ -3,10 +3,10 @@ const app = express();
 
 const low = require('lowdb')
 const FileSync = require('lowdb/adapters/FileSync')
-const adapter = new FileSync('db.json')
+const adapter = new FileSync('books.json')
 const db = low(adapter)
 
-var bodyParser = require('body-parser')
+const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: false}));
 
 app.set('view engine', 'pug');
@@ -14,9 +14,9 @@ app.set('views', './views');
 
 app.use(express.static("public"));
 
-const 
+const books = db.value();
 app.get("/", (req, res) => {
-  res.render(__dirname + "/views/index", { } );
+  res.render(__dirname + "/views/index", { books: books });
 });
 
 

@@ -34,7 +34,7 @@ input {
   width: 100%;
 }
 
-form button {
+button {
   background-color: #bbbbf2;
   border: 2px solid currentColor;
   border-radius: .25em;
@@ -45,7 +45,7 @@ form button {
   max-width: 20ch;
 }
 
-form button:hover {
+button:hover {
   background-color: lavender;
 }
 
