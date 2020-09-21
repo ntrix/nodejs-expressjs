@@ -1,0 +1,12 @@
+h2 Books management page
+form(action='')
+  label Book title
+  input(type='text' name='title')
+    button Add this book
+h3 current list of books
+ul
+  each book in books
+    li Title: #{book.title} <br>
+      span Description: #{book.description} &nbsp;
+        a(href='#')
+          button Xoá

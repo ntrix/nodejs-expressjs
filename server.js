@@ -16,13 +16,11 @@ app.use(express.static("public"));
 
 const books = db.value();
 app.get("/", (req, res) => {
-  res.render(__dirname + "/views/index", { books: books });
+  res.render("index");
 });
 
-
-app.get("/dreams", (req, res) => {
-  // express helps us take JS objects and send them as JSON
-  res.json(dreams);
+app.get("/books", (req, res) => {
+  res.render("books", { books: books });
 });
 
 
