@@ -35,15 +35,9 @@ app.post('/books/add', (req, res) => {
   } 
 })
 
-app.post('/books/del', (req, res) => {
-
-    db.remove({
-      id: books.length + 1,
-      title: req.body.title,
-      description: req.body.description,
-    }).write();
-    res.redirect('back');
-  } 
+app.get('/books/del/:id', (req, res) => {
+  db.remove({ id: +req.params.id }).write();
+  res.redirect('back');
 })
 
 const listener = app.listen(process.env.PORT, () => {
