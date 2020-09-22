@@ -1,14 +1,15 @@
 const express = require("express");
-const app = express();
-const shortid = require('shortid');
-const db = require('./db');
-
 const bodyParser = require('body-parser')
-app.use(bodyParser.urlencoded({ extended: false}));
+const shortid = require('shortid');
+
+const db = require('./shared/db');
+
+const app = express();
 
 app.set('view engine', 'pug');
 app.set('views', './views');
 
+app.use(bodyParser.urlencoded({ extended: false}));
 app.use(express.static("public"));
 
 const books = db.get('books').value();

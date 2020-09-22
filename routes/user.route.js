@@ -16,7 +16,7 @@ router.set('views', './views');
 
 router.use(express.static("public"));
 
-const books = db.defaults({ books: [] }).get('books').value();
+const users = db.defaults({ books: [] }).get('users').value();
 
 router.get("/", (req, res) => {
   res.render("index");
