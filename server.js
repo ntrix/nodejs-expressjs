@@ -48,8 +48,11 @@ app.get('/books/upd/:id', (req, res) => {
 })
 
 app.post('/books/upd', (req, res) => {
-  db.update({ id: req.body.id }).write();
-  res.redirect('back');
+  console.log(req.body.id)
+  db.find({ id: req.body.id })
+    .update('title', req.body.title)
+    .write();
+  res.render('books');
 })
 
 const listener = app.listen(process.env.PORT, () => {
