@@ -1,12 +1,11 @@
 const express = require("express");
 const app = express();
+var shortid = require('shortid');
 
 const low = require('lowdb')
 const FileSync = require('lowdb/adapters/FileSync')
 const adapter = new FileSync('db.json')
 const db = low(adapter)
-
-var shortid = require('shortid');
 
 const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: false}));
@@ -26,10 +25,11 @@ app.get("/books", (req, res) => {
   res.render("books", { books: books });
 });
 
+let id=shortid.generate();
+console.log('o', id, typeof id);
 app.post('/books/add', (req, res) => {
+  req.body = shortid.generate();
   if (req.body.title.length){
-    req.body.id = shortid.generate();
-    console.log(req.body.id);
     db.get('books').push(req.body).write();
     res.redirect('back');
   }
@@ -41,7 +41,7 @@ app.get('/books/del/:id', (req, res) => {
 })
 
 app.get('/books/upd/:id', (req, res) => {
-  console.log(req.params.id)
+  console.log('get update', req.params.id)
   res.render('edit', {
     books: books,
     chosenBook: books.find(b => b.id === req.params.id)
@@ -49,7 +49,7 @@ app.get('/books/upd/:id', (req, res) => {
 })
 
 app.post('/books/upd', (req, res) => {
-  console.log(req.body.id)
+  console.log('post update', req.body.id)
   db.get('books').find({ id: req.body.id })
     .update(req.body)
     .write();
