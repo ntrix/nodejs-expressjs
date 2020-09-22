@@ -2,10 +2,11 @@ link(rel="stylesheet" href="style.css")
 h1 Transactions
 a(href='/')
   button Back to Homepage
+a(href='/trans/create')
+  button Create a transaction
 h3 Transactions list
 ul
-  each transaction in transactions
+  each tran in trans
     li
-      div
-        b= transaction.title
-        span= transaction.username
+      h4= tran.bookId
+      p= tran.userId
