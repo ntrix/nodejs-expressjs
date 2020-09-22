@@ -1,25 +1,25 @@
-h1 Library
-h2 Book management
+h1 Users management
+h2 Add user
 form(action='/users/add' method='post')
   div
-    label Title: 
+    label Username: 
     div
-      input(type='text' name='title' required)
+      input(type='text' name='username' required)
   div
-    label Description:
+    label Email:
     div
-      input(type='text' name='description')
-  button(type='submit') Add to library
+      input(type='email' name='email')
+  button(type='submit') Add to user list
 a(href='/')
   button Back to Homepage
-h3 Book list
+h3 User list
 ul
   each user in users
     li
       div
-        b #{user.title} &nbsp;
+        b #{user.username} &nbsp;
         a(href='/users/upd/' + user.id)
           button Edit
         a(href='/users/del/' + user.id)
             button Delete
-        p Description: #{user.description}
+        p Email: #{user.email}

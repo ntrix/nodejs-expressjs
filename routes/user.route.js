@@ -8,16 +8,9 @@ const router = express.Router();
 const bodyParser = require('body-parser')
 router.use(bodyParser.urlencoded({ extended: false}));
 
-router.set('view engine', 'pug');
-router.set('views', './views');
-
 router.use(express.static("public"));
 
 const users = db.get('users').value();
-
-router.get("/", (req, res) => {
-  res.render("index");
-});
 
 router.get("/users", (req, res) => {
   res.render("users/index", { users: users });
@@ -26,7 +19,7 @@ router.get("/users", (req, res) => {
 router.post('/users/add', (req, res) => {
   req.body.id = shortid.generate();
   console.log('post add', req.body.id)
-  if (req.body.title.length){
+  if (req.body.username.length){
     db.get('users').push(req.body).write();
     res.redirect('back');
   }

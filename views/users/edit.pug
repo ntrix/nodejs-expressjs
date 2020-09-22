@@ -9,16 +9,16 @@ form(action='/books/upd' method='post')
   div
     label Description:
     div
-      input(type='text' name='description' value=chosenBook.description)
+      input(type='email' name='email' value=chosenBook.description)
   button(type='submit') Update this book
 a(href='/books')
   button Back to book management
-h3 Book list
+h3 User list
 ul
-  each book in books
+  each user in users
     li
       div
-        b #{book.title} &nbsp;
-        a(href='/books/del/' + book.id)
+        b #{user.username} &nbsp;
+        a(href='/users/del/' + user.id)
             button Delete
-        p Description: #{book.description}
+        p Email: #{user.email}
