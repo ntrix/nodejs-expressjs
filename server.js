@@ -22,10 +22,6 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.get("/books", (req, res) => {
-  res.render("books/index", { books: books });
-});
-
 app.post('/books/add', (req, res) => {
   req.body.id = shortid.generate();
   if (req.body.title.length){
@@ -34,10 +30,9 @@ app.post('/books/add', (req, res) => {
   }
 })
 
-app.get('/books/del/:id', (req, res) => {
-  db.get('books').remove({ id: req.params.id }).write();
-  res.redirect('back');
-})
+app.get("/books", (req, res) => {
+  res.render("books/index", { books: books });
+});
 
 app.get('/books/upd/:id', (req, res) => {
   res.render('books/edit', {
@@ -51,6 +46,11 @@ app.post('/books/upd', (req, res) => {
     .assign(req.body)
     .write();
   res.redirect('/books');
+})
+
+app.get('/books/del/:id', (req, res) => {
+  db.get('books').remove({ id: req.params.id }).write();
+  res.redirect('back');
 })
 
 const listener = app.listen(process.env.PORT, () => {

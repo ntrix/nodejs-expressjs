@@ -31,6 +31,16 @@
       "id": "aei7MabnH",
       "username": "Admin",
       "email": "admin@admin.com"
+    },
+    {
+      "id": "aeiasdbnH",
+      "username": "tester",
+      "email": "tester@test.dev"
+    },
+    {
+      "username": "tester2",
+      "email": "tqw@test.org",
+      "id": "6Q6hAHSuU"
     }
   ]
 }
