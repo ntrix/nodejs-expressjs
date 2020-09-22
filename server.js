@@ -36,16 +36,19 @@ app.post('/books/add', (req, res) => {
 })
 
 app.get('/books/del/:id', (req, res) => {
+  db.remove({ id: +req.params.id }).write();
   res.redirect('back');
 })
 
 app.get('/books/upd/:id', (req, res) => {
-  db.remove({ id: +req.params.id }).write();
-  res.redirect('back');
+  res.render('edit', {
+    books: books,
+    chosenBook: books.find(b => b.id === +req.params.id)
+  });
 })
 
-app.post('/books/upd/:id', (req, res) => {
-  db.remove({ id: +req.params.id }).write();
+app.post('/books/upd', (req, res) => {
+  db.update({ id: req.body.id }).write();
   res.redirect('back');
 })
 
