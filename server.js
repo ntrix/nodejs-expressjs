@@ -28,15 +28,11 @@ app.get("/books", (req, res) => {
 
 app.post('/books/add', (req, res) => {
   if (req.body.title.length){
-    let id = shortid.generate();
-    console.log(id)
-    db.set('books').push({
-      id: id,
-      title: req.body.title,
-      description: req.body.description,
-    }).write();
+    req.body.id = shortid.generate();
+    console.log(req.body.id);
+    db.get('books').push(req.body).write();
     res.redirect('back');
-  } 
+  }
 })
 
 app.get('/books/del/:id', (req, res) => {
@@ -54,7 +50,7 @@ app.get('/books/upd/:id', (req, res) => {
 
 app.post('/books/upd', (req, res) => {
   console.log(req.body.id)
-  db.set('books').find({ id: req.body.id })
+  db.get('books').find({ id: req.body.id })
     .set('title', req.body.title)
     .set('description', req.body.description)
     .write();
