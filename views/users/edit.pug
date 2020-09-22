@@ -1,6 +1,6 @@
 h1 User management
 h2 Edit user's information
-form(action='/books/upd' method='post')
+form(action='/users/upd' method='post')
   input(type='text' name='id' value=chosenUser.id hidden)
   div
     label Username: 
@@ -11,7 +11,7 @@ form(action='/books/upd' method='post')
     div
       input(type='email' name='email' value=chosenUser.email)
   button(type='submit') Update this user
-a(href='/books')
+a(href='/users')
   button Back to user management
 h3 User list
 ul

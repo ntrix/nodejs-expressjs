@@ -14,7 +14,7 @@ const users = db.get('users').value();
 
 router.post('/users/add', (req, res) => {
   if (req.body.username.length){
-  req.body.id = shortid.generate();
+    req.body.id = shortid.generate();
     db.get('users').push(req.body).write();
     res.redirect('back');
   }
@@ -25,10 +25,9 @@ router.get("/users", (req, res) => {
 });
 
 router.get('/users/upd/:id', (req, res) => {
-  console.log('get update', req.params.id)
   res.render('users/edit', {
     users: users,
-    chosenUser: users.find(b => b.id === req.params.id)
+    chosenUser: users.find(u => u.id === req.params.id)
   });
 })
 
