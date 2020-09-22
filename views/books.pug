@@ -2,9 +2,11 @@ h2 Trang quản lý sách
 form(action='/books/add' method='post')
   div
     label Tiêu đề: 
+    div
       input(type='text' name='title' required)
   div
     label Mô tả:
+    div
       input(type='text' name='description')
   button(type='submit') Thêm sách
 h3 Danh mục đầu sách
@@ -12,9 +14,9 @@ ul
   each book in books
     li
       div
-        a(href='/books/upd')
+        b #{book.title} &nbsp;
+        a(href='/books/upd/' + book.id)
           button Sửa
-        span &nbsp; Tiêu đề: #{book.title} &nbsp;
         a(href='/books/del/' + book.id)
-          button Xoá
-      div Mô tả: #{book.description}
+            button Xoá
+        p Mô tả: #{book.description}
