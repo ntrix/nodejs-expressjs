@@ -1,5 +1,3 @@
-/* this file is loaded by index.html and styles the page */
-
 * {
   box-sizing: border-box;
 }
@@ -12,7 +10,7 @@ body {
 
 h1 {
   font-style: italic;
-  color: red;//#373fff;
+  color: #373fff;
   max-width: calc(100% - 5rem);
   line-height: 1.1;
 }
