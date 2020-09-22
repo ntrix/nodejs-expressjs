@@ -8,19 +8,19 @@ const trans = db.get('transactions').value();
 router.post('/add', (req, res) => {
   if (req.body.title.length){
     req.body.id = shortid.generate();
-    db.get('trans').push(req.body).write();
+    db.get('transactions').push(req.body).write();
     res.redirect('back');
   }
 })
 
 router.get('/', (req, res) => {
-  res.render("transactions/index", { transactions: transactions });
+  res.render("transactions/index", { transactions: trans });
 });
 
 router.get('/upd/:id', (req, res) => {
-  res.render('transactions/cre', {
-    transactions: transactions,
-    chosenBook: trans.find(b => b.id === req.params.id)
+  res.render('transactions/create', {
+    transactions: trans,
+    chosenTrans: trans.find(b => b.id === req.params.id)
   });
 })
 
