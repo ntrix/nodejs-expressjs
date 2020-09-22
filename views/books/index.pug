@@ -1,5 +1,8 @@
+link(rel="stylesheet" href="style.css")
 h1 Library
-h2 Book management
+h3 Book management &nbsp;
+a(href='/')
+button Back to Homepage
 form(action='/books/add' method='post')
   div
     label Title: 
@@ -10,8 +13,6 @@ form(action='/books/add' method='post')
     div
       input(type='text' name='description')
   button(type='submit') Add to library
-a(href='/')
-  button Back to Homepage
 h3 Book list
 ul
   each book in books

@@ -1,5 +1,7 @@
 h1 User management
-h2 Edit user's information
+h3 Edit user's information &nbsp;
+  a(href='/users')
+    button Back to user management
 form(action='/users/upd' method='post')
   input(type='text' name='id' value=chosenUser.id hidden)
   div
@@ -11,14 +13,10 @@ form(action='/users/upd' method='post')
     div
       input(type='email' name='email' value=chosenUser.email)
   button(type='submit') Update this user
-a(href='/users')
-  button Back to user management
 h3 User list
 ul
   each user in users
     li
       div
         b #{user.username} &nbsp;
-        a(href='/users/del/' + user.id)
-            button Delete
         p Email: #{user.email}

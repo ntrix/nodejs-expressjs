@@ -1,5 +1,8 @@
+link(rel="stylesheet" href="style.css")
 h1 Library
-h2 Edit book's information
+h3 Edit book's information &nbsp;
+a(href='/books')
+  button Back to book management
 form(action='/books/upd' method='post')
   input(type='text' name='id' value=chosenBook.id hidden)
   div
@@ -11,14 +14,10 @@ form(action='/books/upd' method='post')
     div
       input(type='text' name='description' value=chosenBook.description)
   button(type='submit') Update this book
-a(href='/books')
-  button Back to book management
 h3 Book list
 ul
   each book in books
     li
       div
         b #{book.title} &nbsp;
-        a(href='/books/del/' + book.id)
-            button Delete
         p Description: #{book.description}

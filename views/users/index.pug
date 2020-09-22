@@ -1,5 +1,8 @@
+link(rel="stylesheet" href="style.css")
 h1 Users management
-h2 Add user
+h3 Add user &nbsp;
+  a(href='/')
+  button Back to Homepage
 form(action='/users/add' method='post')
   div
     label Username: 
@@ -10,8 +13,6 @@ form(action='/users/add' method='post')
     div
       input(type='email' name='email')
   button(type='submit') Add to user list
-a(href='/')
-  button Back to Homepage
 h3 User list
 ul
   each user in users
