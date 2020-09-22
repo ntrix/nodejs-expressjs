@@ -1,11 +1,7 @@
 const express = require("express");
 const app = express();
-var shortid = require('shortid');
-
-const low = require('lowdb')
-const FileSync = require('lowdb/adapters/FileSync')
-const adapter = new FileSync('db.json')
-const db = low(adapter)
+const shortid = require('shortid');
+const db = require('./db');
 
 const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: false}));
@@ -15,7 +11,7 @@ app.set('views', './views');
 
 app.use(express.static("public"));
 
-const books = db.defaults({ books: [] }).get('books').value();
+const books = db.get('books').value();
 
 app.get("/", (req, res) => {
   res.render("index");
