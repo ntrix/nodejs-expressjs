@@ -2,14 +2,17 @@ link(rel="stylesheet" href="style.css")
 h1 Transactions
 h3 Add new transactions
   a(href='/trans')
-    button Back to transaction list
+    button
+      b Back to transaction list
 form(action='/trans/create' method='post')
   select(name=userId)
-    optgrouplabel select user
-      each user in users
-        option(value=user.id) #{user.username}
+    optgroup(label='Select an user')
+    each user in users
+      option(value=user.id) #{user.username}
   select(name=bookId)
+    optgroup(label='Select a book title')
     each book in books
       option(value=book.id) #{book.title}
   div
-    button(type=submit) Create transaction
+    button(type=submit)
+      em Create transaction

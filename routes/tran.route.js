@@ -16,11 +16,12 @@ router.get('/create', (req, res) => {
 });
 
 router.post('/create', (req, res) => {
-  if (req.body.title.length){
+  //if (req.body.userId.length && req.body.bookId.length){
     req.body.id = shortid.generate();
+  console.log(req.body)
     db.get('trans').push(req.body).write();
-    res.redirect('back');
-  }
+    res.redirect(req.baseUrl);
+  //}
 })
 
 module.exports = router;
