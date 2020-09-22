@@ -51,8 +51,7 @@ app.get('/books/upd/:id', (req, res) => {
 app.post('/books/upd', (req, res) => {
   console.log(req.body.id)
   db.get('books').find({ id: req.body.id })
-    .set('title', req.body.title)
-    .set('description', req.body.description)
+    .update(req.body)
     .write();
   res.redirect('/books');
 })
