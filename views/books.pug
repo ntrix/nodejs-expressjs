@@ -1,14 +1,17 @@
-h2 Trang quản lý sách
+h1 Library
+h2 book management
 form(action='/books/upd' method='post')
   div
-    label Tiêu đề: 
+    label Title: 
     div
       input(type='text' name='title' required)
   div
-    label Mô tả:
+    label Description:
     div
       input(type='text' name='description')
-  button(type='submit') Thêm sách
+  button(type='submit') Add to library
+a(href='/')
+  button Back to Homepage
 h3 Danh mục đầu sách
 ul
   each book in books
@@ -16,7 +19,7 @@ ul
       div
         b #{book.title} &nbsp;
         a(href='/books/upd/' + book.id)
-          button Sửa
+          button Edit
         a(href='/books/del/' + book.id)
-            button Xoá
+            button Delete
         p Mô tả: #{book.description}

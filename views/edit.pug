@@ -1,23 +1,24 @@
-h2 Thay đổi tên sách
+h1 Library
+h2 Edit book information
 form(action='/books/upd' method='post')
   input(type='number' name='id' value=chosenBook.id hidden)
   div
-    label Tiêu đề: 
+    label Title: 
     div
       input(type='text' name='title' value=chosenBook.title required)
   div
-    label Mô tả:
+    label Description:
     div
       input(type='text' name='description' value=chosenBook.description)
-  button(type='submit') Cập nhật
+  button(type='submit') Update this book
+a(href='/books')
+  button Back to book management
 h3 Danh mục đầu sách
 ul
   each book in books
     li
       div
         b #{book.title} &nbsp;
-        a(href='/books/upd/' + book.id)
-          button Sửa
         a(href='/books/del/' + book.id)
             button Xoá
         p Mô tả: #{book.description}
