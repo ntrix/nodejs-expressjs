@@ -14,7 +14,8 @@ app.set('views', './views');
 
 app.use(express.static("public"));
 
-const books = db.get('books').value();
+const books = db.defaults({ books: [] }).get('books').value();
+
 app.get("/", (req, res) => {
   res.render("index");
 });
