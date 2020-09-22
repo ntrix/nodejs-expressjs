@@ -1,19 +1,9 @@
 const express = require("express");
+const router = express.Router();
 const shortid = require('shortid');
 
 const db = require('../shared/db');
-const router = express.Router();
-
-router.use(bodyParser.urlencoded({ extended: false}));
-router.use(express.static("public"));
-
 const books = db.get('books').value();
-
-router.use(userRoutes);
-
-router.get("/", (req, res) => {
-  res.render("index");
-});
 
 router.post('/books/add', (req, res) => {
   req.body.id = shortid.generate();
@@ -46,6 +36,4 @@ router.get('/books/del/:id', (req, res) => {
   res.redirect('back');
 })
 
-const listener = router.listen(process.env.PORT, () => {
-  console.log("Your router is listening on port " + listener.address().port);
-});
+module.exports = router;

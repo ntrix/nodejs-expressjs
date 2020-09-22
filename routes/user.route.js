@@ -1,15 +1,8 @@
 const express = require('express');
+const router = express.Router();
 const shortid = require('shortid');
 
 const db = require('../shared/db');
-const router = express.Router();
-
-
-const bodyParser = require('body-parser')
-router.use(bodyParser.urlencoded({ extended: false }));
-
-router.use(express.static("public"));
-
 const users = db.get('users').value();
 
 router.post('/users/add', (req, res) => {
