@@ -1,5 +1,5 @@
 h1 Library
-h2 Edit book information
+h2 Edit book's information
 form(action='/books/upd' method='post')
   input(type='number' name='id' value=chosenBook.id hidden)
   div
@@ -13,12 +13,12 @@ form(action='/books/upd' method='post')
   button(type='submit') Update this book
 a(href='/books')
   button Back to book management
-h3 Danh mục đầu sách
+h3 Book list
 ul
   each book in books
     li
       div
         b #{book.title} &nbsp;
         a(href='/books/del/' + book.id)
-            button Xoá
-        p Mô tả: #{book.description}
+            button Delete
+        p Description: #{book.description}

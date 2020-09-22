@@ -1,17 +1,31 @@
 [
   {
     "id": 1,
-    "title": "book BAa",
-    "description": "des 123"
+    "title": "Book test 1",
+    "description": "des test no 1"
   },
-  {
-    "id": 2,
-    "title": "book A15",
-    "description": "descript 2"
+  { "id": 2,
+    "title": "Conan",
+    "description": "Thám tử lừng danh Conan (bản đẹp) hay Detective Conan, là một bộ truyện tranh trinh thám Nhật Bản của tác giả Aoyama Gōshō."
   },
   {
     "id": 3,
-    "title": "book C23",
-    "description": "descri 3"
+    "title": "One Piece",
+    "description": "Phim Đảo Hải Tặc :Monkey D. Luffy, 1 cậu bé rất thích hải tặc có ước mơ tìm được kho báu One Piece và trở thành Vua hải tặc - Pirate King. Lúc nhỏ, Luffy tình cờ ăn phải trái quỉ (Devil Fruit) Gomu Gomu, nó cho cơ thể cậu khả năng co dãn đàn hồi như cao su nhưng đổi lại cậu sẽ không bao giờ biết bơi."
+  },
+  {
+    "id": 4,
+    "title": "Tôi tài giỏi, bạn cũng thế",
+    "description": "Được sáng tác bởi một doanh nhân người Singapore tên Adam Khoo. Nội dung của cuốn sách là những chia sẻ về các câu chuyện cũng như phương pháp học tập. Do chính tác giả đã trải nghiệm khi mới ở độ tuổi cấp 2"
+  },
+  {
+    "id": 5,
+    "title": "Nhà giả kim",
+    "description": "Nhà giả kim như là đang tự thuật trò chuyện với chính bản thân mình. Sách đã chỉ ra được những thứ đơn giản mà sâu sắc nhất trong đời, khi đọc sách mới có thể ngộ ra được. Bởi rất ít ai có thể tự mình nhận ra được điều đó. Trong tác phẩm đem đến cho độc giả sự lạc quan, những điều mơ ước mà con người đôi khi cũng chỉ biết mơ và không dám thực hiện"
+  },
+  {
+    "id": 6,
+    "title": "Đắc nhân tâm",
+    "description": "Đi tìm lẽ sống của Viktor Frankl là một trong những quyển sách kinh điển của thời đại. Thông thường, nếu một quyển sách chỉ có một đoạn văn, một ý tưởng có sức mạnh thay đổi cuộc sống của một người, thì chỉ riêng điều đó cũng đã đủ để chúng ta đọc đi đọc lại và dành cho nó một chỗ trên kệ sách của mình. Quyển sách này có nhiều đoạn văn như thế."
   }
 ]

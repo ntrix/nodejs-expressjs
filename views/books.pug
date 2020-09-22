@@ -1,5 +1,5 @@
 h1 Library
-h2 book management
+h2 Book management
 form(action='/books/upd' method='post')
   div
     label Title: 
@@ -12,7 +12,7 @@ form(action='/books/upd' method='post')
   button(type='submit') Add to library
 a(href='/')
   button Back to Homepage
-h3 Danh mục đầu sách
+h3 Book list
 ul
   each book in books
     li
@@ -22,4 +22,4 @@ ul
           button Edit
         a(href='/books/del/' + book.id)
             button Delete
-        p Mô tả: #{book.description}
+        p Description: #{book.description}
