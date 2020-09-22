@@ -1,12 +1,14 @@
 link(rel="stylesheet" href="style.css")
 h1 Transactions
-a(href='/')
-  button Back to Homepage
+h3 Add new transactions
+  a(href='/trans')
+    button Back to transaction list
+
+select
+  each user in users
+    option= user.username
+select
+  each book in books
+    option= book.title
 a(href='/trans/create')
-  button Create a transaction
-h3 Transactions list
-ul
-  each tran in trans
-    li
-      h4= tran.bookId
-      p= tran.userId
+  button Add a transaction
