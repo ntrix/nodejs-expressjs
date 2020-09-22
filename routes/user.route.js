@@ -51,3 +51,5 @@ router.post('/users/upd', (req, res) => {
     .write();
   res.redirect('/users');
 })
+
+module.exports = router;

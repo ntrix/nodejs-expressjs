@@ -2,6 +2,8 @@ const express = require("express");
 const bodyParser = require('body-parser')
 const shortid = require('shortid');
 
+const userRoutes = require('./routes/user.route');
+
 const db = require('./shared/db');
 
 const app = express();
@@ -13,6 +15,8 @@ app.use(bodyParser.urlencoded({ extended: false}));
 app.use(express.static("public"));
 
 const books = db.get('books').value();
+
+app.use
 
 app.get("/", (req, res) => {
   res.render("index");
