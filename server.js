@@ -25,10 +25,9 @@ app.get("/books", (req, res) => {
   res.render("books", { books: books });
 });
 
-let id=shortid.generate();
-console.log('o', id, typeof id);
 app.post('/books/add', (req, res) => {
-  req.body = shortid.generate();
+  req.body.id = shortid.generate();
+  console.log('post add', req.body.id)
   if (req.body.title.length){
     db.get('books').push(req.body).write();
     res.redirect('back');
@@ -49,9 +48,8 @@ app.get('/books/upd/:id', (req, res) => {
 })
 
 app.post('/books/upd', (req, res) => {
-  console.log('post update', req.body.id)
   db.get('books').find({ id: req.body.id })
-    .update(req.body)
+    .assign(req.body)
     .write();
   res.redirect('/books');
 })
