@@ -8,8 +8,8 @@ const books = db.get('books').value();
 module.exports = {
 
   index: (req, res) => {
-    let joinTrans = trans.map(t => {
-      let tran = {
+    var joinTrans = trans.map(t => {
+      var tran = {
         title: books.find(b => b.id == t.bookId).title,
         username: users.find(u => u.id == t.userId).username
       }
@@ -23,11 +23,9 @@ module.exports = {
   },
   
   postCreate: (req, res) => {
-    //if (req.body.userId.length && req.body.bookId.length){
       req.body.id = shortid.generate();
       db.get('trans').push(req.body).write();
       res.redirect(req.baseUrl);
-    //}
   }
   
 }
