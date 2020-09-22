@@ -6,7 +6,7 @@ const FileSync = require('lowdb/adapters/FileSync')
 const adapter = new FileSync('db.json')
 const db = low(adapter)
 
-const shortid = require('shortid');
+var shortid = require('shortid');
 
 const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: false}));
@@ -30,7 +30,7 @@ app.post('/books/add', (req, res) => {
   if (req.body.title.length){
     let id = shortid.generate();
     console.log(id)
-    db.get('books').push({
+    db.set('books').push({
       id: id,
       title: req.body.title,
       description: req.body.description,
@@ -45,6 +45,7 @@ app.get('/books/del/:id', (req, res) => {
 })
 
 app.get('/books/upd/:id', (req, res) => {
+  console.log(req.params.id)
   res.render('edit', {
     books: books,
     chosenBook: books.find(b => b.id === req.params.id)
@@ -53,7 +54,7 @@ app.get('/books/upd/:id', (req, res) => {
 
 app.post('/books/upd', (req, res) => {
   console.log(req.body.id)
-  db.get('books').find({ id: req.body.id })
+  db.set('books').find({ id: req.body.id })
     .set('title', req.body.title)
     .set('description', req.body.description)
     .write();
