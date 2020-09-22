@@ -24,11 +24,6 @@
       "id": "euU7MabnH",
       "title": "Book test 2",
       "description": "des test amend"
-    },
-    {
-      "title": "test 2",
-      "description": "des 123",
-      "id": "rIu5Qe_EH"
     }
   ],
   "users": [
@@ -48,9 +43,9 @@
       "id": "6Q6hAHSuU"
     },
     {
-      "username": "tester2",
+      "username": "tester3",
       "email": "tq@test.org",
-      "id": "K_Eklqz6C"
+      "id": "6xJeWmnMJ"
     }
   ]
 }

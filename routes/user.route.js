@@ -28,12 +28,12 @@ router.post('/upd', (req, res) => {
   db.get('users').find({ id: req.body.id })
     .assign(req.body)
     .write();
-  res.redirect('/users');
+  res.redirect(req.baseUrl);
 })
 
 router.get('/del/:id', (req, res) => {
   db.get('users').remove({ id: req.params.id }).write();
-  res.redirect('back');
+  res.redirect(req.baseUrl);
 })
 
 module.exports = router;
