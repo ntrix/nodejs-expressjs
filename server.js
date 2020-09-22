@@ -22,7 +22,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/books", (req, res) => {
-  res.render("books/books", { books: books });
+  res.render("books/index", { books: books });
 });
 
 app.post('/books/add', (req, res) => {
