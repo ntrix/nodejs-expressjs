@@ -1,8 +1,8 @@
 const express = require("express");
 const bodyParser = require('body-parser')
 
-const userRoutes = require('./routes/user.route');
-const bookRoutes = require('./routes/book.route');
+const userRoute = require('./routes/user.route');
+const bookRoute = require('./routes/book.route');
 
 const app = express();
 
@@ -17,7 +17,8 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.use(userRoutes, bookRoutes);
+app.use('/users',userRoute);
+app.use('/books', bookRoute);
 
 const listener = app.listen(process.env.PORT, () => {
   console.log("Your app is listening on port " + listener.address().port);

@@ -5,7 +5,7 @@ const shortid = require('shortid');
 const db = require('../shared/db');
 const books = db.get('books').value();
 
-router.post('/books/add', (req, res) => {
+router.post('/add', (req, res) => {
   if (req.body.title.length){
     req.body.id = shortid.generate();
     db.get('books').push(req.body).write();
@@ -13,25 +13,25 @@ router.post('/books/add', (req, res) => {
   }
 })
 
-router.get("/books", (req, res) => {
+router.get('/', (req, res) => {
   res.render("books/index", { books: books });
 });
 
-router.get('/books/upd/:id', (req, res) => {
+router.get('/upd/:id', (req, res) => {
   res.render('books/edit', {
     books: books,
     chosenBook: books.find(b => b.id === req.params.id)
   });
 })
 
-router.post('/books/upd', (req, res) => {
+router.post('/upd', (req, res) => {
   db.get('books').find({ id: req.body.id })
     .assign(req.body)
     .write();
-  res.redirect('/books');
+  res.redirect('/');
 })
 
-router.get('/books/del/:id', (req, res) => {
+router.get('/del/:id', (req, res) => {
   db.get('books').remove({ id: req.params.id }).write();
   res.redirect('back');
 })
