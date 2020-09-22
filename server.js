@@ -28,8 +28,10 @@ app.get("/books", (req, res) => {
 
 app.post('/books/add', (req, res) => {
   if (req.body.title.length){
+    let id = shortid.generate();
+    console.log(id)
     db.get('books').push({
-      id: shortid.generate(),
+      id: id,
       title: req.body.title,
       description: req.body.description,
     }).write();
@@ -38,20 +40,20 @@ app.post('/books/add', (req, res) => {
 })
 
 app.get('/books/del/:id', (req, res) => {
-  db.get('books').remove({ id: +req.params.id }).write();
+  db.get('books').remove({ id: req.params.id }).write();
   res.redirect('back');
 })
 
 app.get('/books/upd/:id', (req, res) => {
   res.render('edit', {
     books: books,
-    chosenBook: books.find(b => b.id === +req.params.id)
+    chosenBook: books.find(b => b.id === req.params.id)
   });
 })
 
 app.post('/books/upd', (req, res) => {
   console.log(req.body.id)
-  db.get('books').find({ id: +req.body.id })
+  db.get('books').find({ id: req.body.id })
     .set('title', req.body.title)
     .set('description', req.body.description)
     .write();
