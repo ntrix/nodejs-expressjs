@@ -8,5 +8,7 @@ a(href='/trans/create')
 ul
   each tran in trans
     li
-      h4= tran.title
-      p= tran.username
+      h4 Book:
+        span= tran.title
+      p User:
+        span= tran.username

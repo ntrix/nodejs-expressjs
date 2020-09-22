@@ -1,9 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const shortid = require('shortid')
+const userController = require('../controller/user.controller')
 
-const db = require('../shared/db');
-const users = db.get('users').value();
 
 router.post('/add', (req, res) => {
   if (req.body.username.length){
@@ -13,9 +12,7 @@ router.post('/add', (req, res) => {
   }
 })
 
-router.get('/', (req, res) => {
-  res.render("users/index", { users: users });
-});
+router.get('/',userController.index);
 
 router.get('/upd/:id', (req, res) => {
   res.render('users/edit', {
