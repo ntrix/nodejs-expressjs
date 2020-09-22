@@ -25,10 +25,11 @@ router.get('/upd/:id', (req, res) => {
 })
 
 router.post('/upd', (req, res) => {
+  console.log(req)
   db.get('books').find({ id: req.body.id })
     .assign(req.body)
     .write();
-  res.redirect('/');
+  res.redirect(baseUrl);
 })
 
 router.get('/del/:id', (req, res) => {

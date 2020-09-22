@@ -28,7 +28,7 @@ router.post('/upd', (req, res) => {
   db.get('users').find({ id: req.body.id })
     .assign(req.body)
     .write();
-  res.redirect('/');
+  res.redirect('/users');
 })
 
 router.get('/del/:id', (req, res) => {
