@@ -3,7 +3,7 @@ const app = express();
 
 const low = require('lowdb')
 const FileSync = require('lowdb/adapters/FileSync')
-const adapter = new FileSync('books.json')
+const adapter = new FileSync('db.json')
 const db = low(adapter)
 
 const bodyParser = require('body-parser')
@@ -14,7 +14,7 @@ app.set('views', './views');
 
 app.use(express.static("public"));
 
-const books = db.value();
+const books = db.get('books').value();
 app.get("/", (req, res) => {
   res.render("index");
 });
@@ -25,8 +25,7 @@ app.get("/books", (req, res) => {
 
 app.post('/books/add', (req, res) => {
   if (req.body.title.length){
-    console.log(req.body.title)
-    db.push({
+    db.get('books').push({
       id: books.length + 1,
       title: req.body.title,
       description: req.body.description,
@@ -36,7 +35,7 @@ app.post('/books/add', (req, res) => {
 })
 
 app.get('/books/del/:id', (req, res) => {
-  db.remove({ id: +req.params.id }).write();
+  db.get('books').remove({ id: +req.params.id }).write();
   res.redirect('back');
 })
 
@@ -49,7 +48,7 @@ app.get('/books/upd/:id', (req, res) => {
 
 app.post('/books/upd', (req, res) => {
   console.log(req.body.id)
-  db.find({ id: +req.body.id })
+  db.get('books').find({ id: +req.body.id })
     .set('title', req.body.title)
     .set('description', req.body.description)
     .write();
