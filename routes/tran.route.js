@@ -1,18 +1,11 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
+const tranController = require('../controller/tran.controller');
 
-router.get('/', );
+router.get('/', tranController.index);
 
-router.get('/create', (req, res) => {
-  res.render("trans/create", { users: users, books: books });
-});
+router.get('/create', tranController.create);
 
-router.post('/create', (req, res) => {
-  //if (req.body.userId.length && req.body.bookId.length){
-    req.body.id = shortid.generate();
-    db.get('trans').push(req.body).write();
-    res.redirect(req.baseUrl);
-  //}
-})
+router.post('/create', tranController.postCreate);
 
 module.exports = router;
