@@ -3,6 +3,7 @@ const bodyParser = require('body-parser')
 const shortid = require('shortid');
 
 const userRoutes = require('./routes/user.route');
+const bookRoutes = require('./routes/book.route');
 
 const db = require('./shared/db');
 
