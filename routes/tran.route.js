@@ -8,11 +8,14 @@ const users = db.get('users').value();
 const books = db.get('books').value();
 
 router.get('/', (req, res) => {
-  let joinTrans = {};
-  trans.forEach(t => {
-    title: books.find(b => b.id == t.id)
-  })
-  res.render("trans/index", { trans: trans });
+  let joinTrans = trans.map(t => {
+    let tran = {
+      title: books.find(b => b.id == t.bookId).title,
+      username: users.find(u => u.id == t.userId).username
+    }
+    return tran;
+  });
+  res.render("trans/index", { trans: joinTrans });
 });
 
 router.get('/create', (req, res) => {
