@@ -1,6 +1,6 @@
 h1 Library
 h2 Book management
-form(action='/books/add' method='post')
+form(action='/users/add' method='post')
   div
     label Title: 
     div
@@ -14,12 +14,12 @@ a(href='/')
   button Back to Homepage
 h3 Book list
 ul
-  each book in books
+  each user in users
     li
       div
-        b #{book.title} &nbsp;
-        a(href='/books/upd/' + book.id)
+        b #{user.title} &nbsp;
+        a(href='/users/upd/' + user.id)
           button Edit
-        a(href='/books/del/' + book.id)
+        a(href='/users/del/' + user.id)
             button Delete
-        p Description: #{book.description}
+        p Description: #{user.description}

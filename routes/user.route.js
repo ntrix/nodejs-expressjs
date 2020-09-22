@@ -1,12 +1,9 @@
 const express = require('express');
-var shortid = require('shortid');
+const shortid = require('shortid');
+
+const db = require('../shared/db');
 const router = express.Router();
 
-
-const low = require('lowdb')
-const FileSync = require('lowdb/adapters/FileSync')
-const adapter = new FileSync('db.json')
-const db = low(adapter)
 
 const bodyParser = require('body-parser')
 router.use(bodyParser.urlencoded({ extended: false}));
@@ -16,41 +13,41 @@ router.set('views', './views');
 
 router.use(express.static("public"));
 
-const users = db.defaults({ books: [] }).get('users').value();
+const users = db.get('users').value();
 
 router.get("/", (req, res) => {
   res.render("index");
 });
 
-router.get("/books", (req, res) => {
-  res.render("books/index", { books: books });
+router.get("/users", (req, res) => {
+  res.render("users/index", { users: users });
 });
 
-router.post('/books/add', (req, res) => {
+router.post('/users/add', (req, res) => {
   req.body.id = shortid.generate();
   console.log('post add', req.body.id)
   if (req.body.title.length){
-    db.get('books').push(req.body).write();
+    db.get('users').push(req.body).write();
     res.redirect('back');
   }
 })
 
-router.get('/books/del/:id', (req, res) => {
-  db.get('books').remove({ id: req.params.id }).write();
+router.get('/users/del/:id', (req, res) => {
+  db.get('users').remove({ id: req.params.id }).write();
   res.redirect('back');
 })
 
-router.get('/books/upd/:id', (req, res) => {
+router.get('/users/upd/:id', (req, res) => {
   console.log('get update', req.params.id)
-  res.render('books/edit', {
-    books: books,
-    chosenBook: books.find(b => b.id === req.params.id)
+  res.render('users/edit', {
+    users: users,
+    chosenBook: users.find(b => b.id === req.params.id)
   });
 })
 
-router.post('/books/upd', (req, res) => {
-  db.get('books').find({ id: req.body.id })
+router.post('/users/upd', (req, res) => {
+  db.get('users').find({ id: req.body.id })
     .assign(req.body)
     .write();
-  res.redirect('/books');
+  res.redirect('/users');
 })

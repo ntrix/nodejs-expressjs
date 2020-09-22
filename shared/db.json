@@ -26,5 +26,11 @@
       "description": "des test amend"
     }
   ],
-  "users": []
+  "users": [
+    {
+      "id": "aei7MabnH",
+      "username": "Admin",
+      "password": "123"
+    }
+  ]
 }
