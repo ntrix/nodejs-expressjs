@@ -49,10 +49,11 @@ app.get('/books/upd/:id', (req, res) => {
 
 app.post('/books/upd', (req, res) => {
   console.log(req.body.id)
-  db.find({ id: req.body.id })
-    .update('title', req.body.title)
+  db.find({ id: +req.body.id })
+    .set('title', req.body.title)
+    .set('description', req.body.description)
     .write();
-  res.render('books');
+  res.redirect('/books');
 })
 
 const listener = app.listen(process.env.PORT, () => {
