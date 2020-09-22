@@ -3,12 +3,13 @@ h1 Transactions
 h3 Add new transactions
   a(href='/trans')
     button Back to transaction list
-
-select
-  each user in users
-    option= user.username
-select
-  each book in books
-    option= book.title
-a(href='/trans/create')
-  button Add a transaction
+form(action='/trans/create' method='post')
+  select(name=userId)
+    optgrouplabel select user
+      each user in users
+        option(value=user.id) #{user.username}
+  select(name=bookId)
+    each book in books
+      option(value=book.id) #{book.title}
+  div
+    button(type=submit) Create transaction
