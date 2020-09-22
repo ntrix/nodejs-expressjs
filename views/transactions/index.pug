@@ -1,0 +1,26 @@
+link(rel="stylesheet" href="style.css")
+h1 Library
+h3 Book management &nbsp;
+  a(href='/')
+    button Back to Homepage
+form(action='/books/add' method='post')
+  div
+    label Title: 
+    div
+      input(type='text' name='title' required)
+  div
+    label Description:
+    div
+      input(type='text' name='description')
+  button(type='submit') Add to library
+h3 Book list
+ul
+  each book in books
+    li
+      div
+        b #{book.title} &nbsp;
+        a(href='/books/upd/' + book.id)
+          button Edit
+        a(href='/books/del/' + book.id)
+            button Delete
+        p Description: #{book.description}
