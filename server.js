@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.use('/users',userRoute);
+app.use('/users', userRoute);
 app.use('/books', bookRoute);
 app.use('/trans', tranRoute);
 

@@ -1,9 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const shortid = require('shortid');
-
-const db = require('../shared/db');
-const books = db.get('books').value();
 
 router.post('/add', (req, res) => {
   if (req.body.title.length){
@@ -13,9 +9,7 @@ router.post('/add', (req, res) => {
   }
 })
 
-router.get('/', (req, res) => {
-  res.render("books/index", { books: books });
-});
+router.get('/', index);
 
 router.get('/upd/:id', (req, res) => {
   res.render('books/edit', {
