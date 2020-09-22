@@ -3,37 +3,37 @@ const router = express.Router();
 const shortid = require('shortid');
 
 const db = require('../shared/db');
-const books = db.get('books').value();
+const trans = db.get('transactions').value();
 
 router.post('/add', (req, res) => {
   if (req.body.title.length){
     req.body.id = shortid.generate();
-    db.get('books').push(req.body).write();
+    db.get('trans').push(req.body).write();
     res.redirect('back');
   }
 })
 
 router.get('/', (req, res) => {
-  res.render("books/index", { books: books });
+  res.render("transactions/index", { transactions: transactions });
 });
 
 router.get('/upd/:id', (req, res) => {
-  res.render('books/edit', {
-    books: books,
-    chosenBook: books.find(b => b.id === req.params.id)
+  res.render('transactions/cre', {
+    transactions: transactions,
+    chosenBook: trans.find(b => b.id === req.params.id)
   });
 })
 
 router.post('/upd', (req, res) => {
   console.log(req)
-  db.get('books').find({ id: req.body.id })
+  db.get('transactions').find({ id: req.body.id })
     .assign(req.body)
     .write();
   res.redirect(req.baseUrl);
 })
 
 router.get('/del/:id', (req, res) => {
-  db.get('books').remove({ id: req.params.id }).write();
+  db.get('transactions').remove({ id: req.params.id }).write();
   res.redirect(req.baseUrl);
 })
 
