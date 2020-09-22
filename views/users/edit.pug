@@ -1,0 +1,24 @@
+h1 Library
+h2 Edit book's information
+form(action='/books/upd' method='post')
+  input(type='text' name='id' value=chosenBook.id hidden)
+  div
+    label Title: 
+    div
+      input(type='text' name='title' value=chosenBook.title required)
+  div
+    label Description:
+    div
+      input(type='text' name='description' value=chosenBook.description)
+  button(type='submit') Update this book
+a(href='/books')
+  button Back to book management
+h3 Book list
+ul
+  each book in books
+    li
+      div
+        b #{book.title} &nbsp;
+        a(href='/books/del/' + book.id)
+            button Delete
+        p Description: #{book.description}

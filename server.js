@@ -22,7 +22,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/books", (req, res) => {
-  res.render("books", { books: books });
+  res.render("books/books", { books: books });
 });
 
 app.post('/books/add', (req, res) => {
@@ -41,7 +41,7 @@ app.get('/books/del/:id', (req, res) => {
 
 app.get('/books/upd/:id', (req, res) => {
   console.log('get update', req.params.id)
-  res.render('edit', {
+  res.render('books/edit', {
     books: books,
     chosenBook: books.find(b => b.id === req.params.id)
   });
