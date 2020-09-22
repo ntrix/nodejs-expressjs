@@ -6,6 +6,8 @@ const FileSync = require('lowdb/adapters/FileSync')
 const adapter = new FileSync('db.json')
 const db = low(adapter)
 
+const shortid = require('shortid');
+
 const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: false}));
 
@@ -27,7 +29,7 @@ app.get("/books", (req, res) => {
 app.post('/books/add', (req, res) => {
   if (req.body.title.length){
     db.get('books').push({
-      id: books.length + 1,
+      id: shortid.generate(),
       title: req.body.title,
       description: req.body.description,
     }).write();
