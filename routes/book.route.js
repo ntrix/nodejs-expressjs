@@ -6,8 +6,8 @@ const db = require('../shared/db');
 const books = db.get('books').value();
 
 router.post('/books/add', (req, res) => {
-  req.body.id = shortid.generate();
   if (req.body.title.length){
+    req.body.id = shortid.generate();
     db.get('books').push(req.body).write();
     res.redirect('back');
   }

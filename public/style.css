@@ -12,7 +12,7 @@ body {
 
 h1 {
   font-style: italic;
-  color: #373fff;
+  color: red;//#373fff;
   max-width: calc(100% - 5rem);
   line-height: 1.1;
 }
