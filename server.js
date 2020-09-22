@@ -36,6 +36,15 @@ app.post('/books/add', (req, res) => {
 })
 
 app.get('/books/del/:id', (req, res) => {
+  res.redirect('back');
+})
+
+app.get('/books/upd/:id', (req, res) => {
+  db.remove({ id: +req.params.id }).write();
+  res.redirect('back');
+})
+
+app.post('/books/upd/:id', (req, res) => {
   db.remove({ id: +req.params.id }).write();
   res.redirect('back');
 })
