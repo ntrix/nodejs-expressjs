@@ -1,8 +1,9 @@
 extends ../common
 block header
-  h1 Library
-  h3 Book management &nbsp;
-  a.btn.btn-secondary(href='/') Back to Homepage
+  div.col
+    h1 Library
+    h3 Book management &nbsp;
+    a.btn.btn-secondary(href='/') Back to Homepage
 block content
   form(action='/books/add' method='post')
     label Title: 
