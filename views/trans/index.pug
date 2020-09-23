@@ -5,13 +5,19 @@ block header
   a.btn.btn-secondary(href='/') Back to Homepage
 block content
   a.mb-3.btn.btn-primary(href='/trans/create') Create a transaction
-  ul
+  table
+    tr
+      th ID
+      th(colspan='3') Book title
+      th User
+      th Status
+      th
     each tran in trans
-      li
-        h4 Book:
-          span #{tran.title}
-        p User:
-          span= tran.username
-        span Status: #{tran.isComplete?'completed':'open'}
+      tr
+        td= tran.id
+        td(colspan='3')= tran.title
+        td= tran.username
+        td= tran.isComplete?'completed':'open'
+        td
           if !tran.isComplete
-            a.ml-3.btn.btn-sm.btn-warning(href='/trans/'+tran.id+'/complete') Close this one
+            a.ml-3.btn.btn-sm.btn-warning(href='/trans/'+tran.id+'/complete') Close
