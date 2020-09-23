@@ -9,6 +9,10 @@ ul
   each tran in trans
     li
       h4 Book:
-        span= tran.title
+        span #{tran.title}
       p User:
         span= tran.username
+      span Status: #{tran.isComplete?'completed':'not avaiable'}
+        if(trans.isComplete==true)
+          a
+            button Complete

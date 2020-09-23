@@ -11,7 +11,8 @@ module.exports = {
     var joinTrans = trans.map(t => {
       var tran = {
         title: books.find(b => b.id == t.bookId).title,
-        username: users.find(u => u.id == t.userId).username
+        username: users.find(u => u.id == t.userId).username,
+        isComplete: t.isComplete
       }
       return tran;
     });
