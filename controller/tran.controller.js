@@ -23,7 +23,7 @@ module.exports = {
   },
   
   postCreate: (req, res) => {
-      req.body.id = shortid.generate();
+      req.body.id = 't' + shortid.generate();
       db.get('trans').push(req.body).write();
       res.redirect(req.baseUrl);
   }

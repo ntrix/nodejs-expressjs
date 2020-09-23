@@ -18,7 +18,7 @@ module.exports = {
   
   postAdd: (req, res) => {
     if (req.body.title.length){
-      req.body.id = shortid.generate();
+      req.body.id = 'b' + shortid.generate();
       db.get('books').push(req.body).write();
       res.redirect('back');
     }
