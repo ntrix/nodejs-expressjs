@@ -9,13 +9,12 @@ module.exports = {
 
   index: (req, res) => {
     var joinTrans = trans.map(t => {
-      var tran = {
+      {
         id: t.id,
-        title: books.find(b => b.id == t.bookId).title,
-        username: users.find(u => u.id == t.userId).username,
+        title: db.get('books').find({ id: t.bookId }).value().title,
+        username: db.get('users').find({ id: t.userId }).value().username,
         isComplete: t.isComplete
       }
-      return tran;
     });
     res.render("trans/index", { trans: joinTrans });
   },
