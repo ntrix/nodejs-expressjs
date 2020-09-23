@@ -2,9 +2,7 @@ extends ../common
 block header
   h1 Transactions
   h3 Add new transactions &nbsp;
-  a(href='/trans')
-    button
-      b Back to transaction list
+  a.btn.btn-secondary(href='/trans') Back to transaction list
 block content
   form(action='' method='post')
     select(name='userId')
@@ -15,6 +13,5 @@ block content
       optgroup(label='Select a book')
       each book in books
         option(value=book.id) #{book.title}
-    div
-      button(type=submit)
-        em Create transaction
+    div.mt-3
+      button.btn.btn-success(type=submit) Create transaction

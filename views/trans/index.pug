@@ -2,11 +2,9 @@ extends ../common
 block header
   h1 Transactions
   h3 Transactions list
-  a(href='/')
-    button Back to Homepage
+  a.btn.btn-secondary(href='/') Back to Homepage
 block content
-  a(href='/trans/create')
-    button Create a transaction
+  a.btn.btn-success(href='/trans/create') Create a transaction
   ul
     each tran in trans
       li
@@ -16,5 +14,4 @@ block content
           span= tran.username
         span Status: #{tran.isComplete?'completed':'open'}
           if !tran.isComplete
-            a(href='/trans/'+tran.id+'/complete')
-              button Close this one
+            a.btn.btn-warning.ml-2(href='/trans/'+tran.id+'/complete') Close this one
