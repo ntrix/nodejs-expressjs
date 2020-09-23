@@ -40,6 +40,7 @@ button {
   font-size: inherit;
   line-height: 1.4em;
   padding: 0.25em 1em;
+  margin-bottom: 0.5rem;
   max-width: 20ch;
 }
 

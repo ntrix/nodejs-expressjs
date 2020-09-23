@@ -1,9 +1,10 @@
 extends ../common
-block content
+block header
   h1 Library
   h3 Book management &nbsp;
   a(href='/')
     button Back to Homepage
+block content
   form(action='/books/add' method='post')
     div
       label Title: 

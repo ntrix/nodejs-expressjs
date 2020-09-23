@@ -1,9 +1,10 @@
 extends ../common
-block content
+block header
   h1 Library
   h3 Edit book's information &nbsp;
   a(href='/books')
     button Back to book management
+block content
   form(action='/books/upd' method='post')
     input(type='text' name='id' value=chosenBook.id hidden)
     div
