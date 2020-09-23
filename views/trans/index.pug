@@ -1,18 +1,19 @@
-link(rel="stylesheet" href="style.css")
-h1 Transactions
-h3 Transactions list
-a(href='/')
-  button Back to Homepage
-a(href='/trans/create')
-  button Create a transaction
-ul
-  each tran in trans
-    li
-      h4 Book:
-        span #{tran.title}
-      p User:
-        span= tran.username
-      span Status: #{tran.isComplete?'completed':'open'}
-        if !tran.isComplete
-          a(href='/trans/'+tran.id+'/complete')
-            button Close this one
+extends ../common
+block content
+  h1 Transactions
+  h3 Transactions list
+  a(href='/')
+    button Back to Homepage
+  a(href='/trans/create')
+    button Create a transaction
+  ul
+    each tran in trans
+      li
+        h4 Book:
+          span #{tran.title}
+        p User:
+          span= tran.username
+        span Status: #{tran.isComplete?'completed':'open'}
+          if !tran.isComplete
+            a(href='/trans/'+tran.id+'/complete')
+              button Close this one

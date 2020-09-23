@@ -1,23 +1,24 @@
-link(rel="stylesheet" href="./../style.css")
-h1 Library
-h3 Edit book's information &nbsp;
-  a(href='/books')
-    button Back to book management
-form(action='/books/upd' method='post')
-  input(type='text' name='id' value=chosenBook.id hidden)
-  div
-    label Title: 
+extends ../common
+block content
+  h1 Library
+  h3 Edit book's information &nbsp;
+    a(href='/books')
+      button Back to book management
+  form(action='/books/upd' method='post')
+    input(type='text' name='id' value=chosenBook.id hidden)
     div
-      input(type='text' name='title' value=chosenBook.title required)
-  div
-    label Description:
-    div
-      input(type='text' name='description' value=chosenBook.description)
-  button(type='submit') Update this book
-h3 Book list
-ul
-  each book in books
-    li
+      label Title: 
       div
-        b #{book.title} &nbsp;
-        p Description: #{book.description}
+        input(type='text' name='title' value=chosenBook.title required)
+    div
+      label Description:
+      div
+        input(type='text' name='description' value=chosenBook.description)
+    button(type='submit') Update this book
+  h3 Book list
+  ul
+    each book in books
+      li
+        div
+          b #{book.title} &nbsp;
+          p Description: #{book.description}
