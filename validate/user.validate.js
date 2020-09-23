@@ -1,12 +1,10 @@
 module.exports = {
-  errors: [],
   postAdd: (req, res, next) => {
-    if (!req.body.username) 
-      this.errors.push('Username must have at leat one character');
+    const errors = [];
+    if (req.body.username.length < 2) 
+      errors.push('Username must have at leat 2 characters');
     if (req.body.username.length > 30)
-      this.errors.push('Username can have maiximal 30 characters'); 
-    next();
-    and maximal 30 charaters');
-    res.redirect(req.baseUrl);
+      errors.push('Username can have maiximal 30 characters'); 
+    return errors;
   }
 }

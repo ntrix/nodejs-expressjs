@@ -2,9 +2,7 @@ const express = require('express');
 const router = express.Router();
 const userController = require('../controller/user.controller')
 
-const validate = require('../validate/user.validate');
-
-router.post('/add', validate.postAdd, userController.postAdd);
+router.post('/add', userController.postAdd);
 
 router.get('/', userController.index);
 
