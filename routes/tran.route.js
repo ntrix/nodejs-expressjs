@@ -8,4 +8,6 @@ router.get('/create', tranController.create);
 
 router.post('/create', tranController.postCreate);
 
+router.post('/transaction/:id/complete', tranController.postComplete);
+
 module.exports = router;

@@ -10,6 +10,7 @@ module.exports = {
   index: (req, res) => {
     var joinTrans = trans.map(t => {
       var tran = {
+        id: t.id,
         title: books.find(b => b.id == t.bookId).title,
         username: users.find(u => u.id == t.userId).username,
         isComplete: t.isComplete
@@ -24,9 +25,13 @@ module.exports = {
   },
   
   postCreate: (req, res) => {
-      req.body.id = 't' + shortid.generate();
-      db.get('trans').push(req.body).write();
-      res.redirect(req.baseUrl);
+    req.body.id = 't' + shortid.generate();
+    db.get('trans').push(req.body).write();
+    res.redirect(req.baseUrl);
+  },
+  
+  postComplete: (req, res) => {
+    db.get('trans').find({ req.body.id })
   }
   
 }

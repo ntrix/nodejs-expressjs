@@ -12,7 +12,7 @@ ul
         span #{tran.title}
       p User:
         span= tran.username
-      span Status: #{tran.isComplete?'completed':'not avaiable'}
-        if(trans.isComplete==true)
-          a
-            button Complete
+      span Status: #{tran.isComplete?'completed':'open'}
+        if !tran.isComplete
+          a(href='/transaction/'+tran.id+'/complete')
+            button Close this one
