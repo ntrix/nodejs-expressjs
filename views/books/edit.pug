@@ -6,14 +6,10 @@ block header
 block content
   form(action='/books/upd' method='post')
     input(type='text' name='id' value=chosenBook.id hidden)
-    div
-      label Title: 
-      div
-        input(type='text' name='title' value=chosenBook.title required)
-    div
-      label Description:
-      div
-        input(type='text' name='description' value=chosenBook.description)
+    label Title:
+      input(type='text' name='title' value=chosenBook.title required)
+    label Description:
+      input(type='text' name='description' value=chosenBook.description)
     button.mt-3.btn.btn-primary(type='submit') Update this book
   h3 Book list
   ul

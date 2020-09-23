@@ -6,19 +6,14 @@ block header
 block content
   form(action='/users/upd' method='post')
     input(type='text' name='id' value=chosenUser.id hidden)
-    div
-      label Username: 
-      div
-        input(type='text' name='username' value=chosenUser.username required)
-    div
-      label Email:
-      div
-        input(type='email' name='email' value=chosenUser.email)
+    label Username: 
+      input(type='text' name='username' value=chosenUser.username required)
+    label Email:
+      input(type='email' name='email' value=chosenUser.email)
     button.mt-3.btn.btn-primary(type='submit') Update this user
   h3 User list
   ul
     each user in users
       li
-        div
-          b #{user.username} &nbsp;
-          p Email: #{user.email}
+        b #{user.username} &nbsp;
+        p Email: #{user.email}

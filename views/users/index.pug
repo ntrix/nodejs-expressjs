@@ -5,21 +5,16 @@ block header
   a.btn.btn-secondary(href='/') Back to Homepage
 block content
   form(action='/users/add' method='post')
-    div
-      label Username: 
-      div
-        input(type='text' name='username' required)
-    div
-      label Email:
-      div
-        input(type='email' name='email')
+    label Username: 
+      input(type='text' name='username' required)
+    label Email:
+      input(type='email' name='email')
     button.mt-3.btn.btn-primary(type='submit') Add to user list
   h3 User list
   ul
     each user in users
       li
-        div
-          b #{user.username}
-          a.ml-3.btn.btn-sm.btn-warning(href='/users/upd/' + user.id) Edit
-          a.ml-3.btn.btn-sm.btn-danger(href='/users/del/' + user.id) Delete
-          p Email: #{user.email}
+        b= user.username
+        a.ml-3.btn.btn-sm.btn-warning(href='/users/upd/' + user.id) Edit
+        a.ml-3.btn.btn-sm.btn-danger(href='/users/del/' + user.id) Delete
+        p Email: #{user.email}

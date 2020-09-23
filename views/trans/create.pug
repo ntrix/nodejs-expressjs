@@ -5,13 +5,15 @@ block header
   a.btn.btn-secondary(href='/trans') Back to transaction list
 block content
   form(action='' method='post')
-    select(name='userId')
-      optgroup(label='Select an user')
-      each user in users
-        option(value=user.id) #{user.username}
-    select(name='bookId')
-      optgroup(label='Select a book')
-      each book in books
-        option(value=book.id) #{book.title}
-    div.mt-3
+    label Select an user
+      select.col(name='userId')
+        optgroup(label='Select an user')
+        each user in users
+          option(value=user.id) #{user.username}
+    label Select a book'
+      select.col(name='bookId')
+        optgroup(label='Select a book')
+        each book in books
+          option(value=book.id) #{book.title}
+      div.mt-3
       button.btn.btn-success(type=submit) Create transaction

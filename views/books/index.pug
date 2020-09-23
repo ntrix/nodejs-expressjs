@@ -5,14 +5,10 @@ block header
   a.btn.btn-secondary(href='/') Back to Homepage
 block content
   form(action='/books/add' method='post')
-    div
-      label Title: 
-      div
-        input(type='text' name='title' required)
-    div
-      label Description:
-      div
-        input(type='text' name='description')
+    label Title: 
+      input(type='text' name='title' required)
+    label Description:
+      input(type='text' name='description')
     button.mt-3.btn.btn-primary(type='submit') Add to library
   h3 Book list
   ul
