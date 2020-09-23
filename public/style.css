@@ -32,20 +32,8 @@ input {
   width: 100%;
 }
 
-button {
-  background-color: #bbbbf2;
-  border: 2px solid currentColor;
-  border-radius: .25em;
-  cursor: pointer;
-  font-size: inherit;
-  line-height: 1.4em;
-  padding: 0.25em 1em;
-  margin-bottom: 0.5rem;
-  max-width: 20ch;
-}
-
-button:hover {
-  background-color: lavender;
+.btn:hover {
+  box-shadow: 0 0 0.3rem 0.5rem #0002;
 }
 
 footer {
