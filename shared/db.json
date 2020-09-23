@@ -38,14 +38,19 @@
       "email": "tester@test.dev"
     },
     {
-      "username": "tester2",
+      "username": "user2",
       "email": "tqw@test.org",
       "id": "u6Q6hAHSuU"
     },
     {
-      "username": "tester4",
+      "username": "dev4",
       "email": "tq44@test.org",
       "id": "uVQpjVI75i"
+    },
+    {
+      "username": "customer3",
+      "email": "cust@customer.org",
+      "id": "udRQ230A8P"
     }
   ],
   "trans": [
@@ -104,6 +109,11 @@
       "userId": "uaei7MabnH",
       "bookId": "beuU7M34nH",
       "id": "tB90CLOhp8"
+    },
+    {
+      "userId": "u6Q6hAHSuU",
+      "bookId": "beuU7MabnH",
+      "id": "txNtVukKv5"
     }
   ]
 }

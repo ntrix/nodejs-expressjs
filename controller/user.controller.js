@@ -16,11 +16,9 @@ module.exports = {
   },
   
   postAdd: (req, res) => {
-    if (req.body.username.length){
-      req.body.id = 'u' + shortid.generate();
-      db.get('users').push(req.body).write();
-      res.redirect('back');
-    }
+    req.body.id = 'u' + shortid.generate();
+    db.get('users').push(req.body).write();
+    res.redirect('back');
   },
   
   postUpdate: (req, res) => {

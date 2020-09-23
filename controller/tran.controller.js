@@ -22,10 +22,10 @@ module.exports = {
   },
   
   complete: (req, res) => {
-    db.get('trans').find({ id: req.params.id }, (err, data) => {
-      if (err)
-        res.send(err); //render error page
-    }).set('isComplete', true).write();
+    const matchedTran = db.get('trans').find({ id: req.params.id });
+    if (!matchedTran.value()) res.send('Transaction(id) does not exist'); // or render error page
+    
+    matchedTran.set('isComplete', true).write();
     res.redirect('back');
   },
   
