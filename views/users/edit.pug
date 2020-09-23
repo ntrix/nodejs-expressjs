@@ -13,9 +13,6 @@ block content
       input(type='email' name='email' value=chosenUser.email)
     button.mt-3.btn.btn-primary(type='submit') Update this user
   hr
-  if errors.length
-    each error in errors
-      p= error
   table.table.table-lg.col
     legend User list
     each user in users

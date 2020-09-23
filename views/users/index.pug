@@ -14,6 +14,8 @@ block content
       input(type='email' name='email')
     button.mt-3.btn.btn-primary(type='submit') Add to user list
   hr
+  each error in errors || []
+    p.alert.alert-danger= error
   table.table.table-lg.col
     legend User list
     each user in users
