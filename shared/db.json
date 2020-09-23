@@ -2,8 +2,8 @@
   "books": [
     {
       "id": "beuU7M34nH",
-      "title": "Book test 1",
-      "description": "des test no 1"
+      "title": "Book test",
+      "description": "description for book no 1"
     },
     {
       "id": "bZZECnSFsnt",
@@ -23,7 +23,7 @@
     {
       "id": "beuU7MabnH",
       "title": "Book test 2",
-      "description": "des test amend"
+      "description": "description test amend"
     }
   ],
   "users": [

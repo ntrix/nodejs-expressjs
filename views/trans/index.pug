@@ -11,7 +11,6 @@ block content
       th(colspan='4') Book title
       th User
       th Status
-      th
     each tran in trans
       tr
         td= tran.id
@@ -22,4 +21,4 @@ block content
           if !tran.isComplete
             a.btn.btn-sm.btn-warning(href='/trans/'+tran.id+'/complete') Close
           else
-            button.btn.btn-sm.btn-light(disabled) Close
+            button.btn.btn-sm.btn-light(disabled) closed
