@@ -9,7 +9,7 @@ block content
 
   form(action='/users/add' method='post')
     label Username: 
-      input(type='text' name='username' value= values? values.username: '' required)
+      input(type='text' name='username' value= values? values.username: '')
     label Email:
       input(type='email' name='email' value= values? values.email: '')
     button.mt-3.btn.btn-primary(type='submit') Add to user list

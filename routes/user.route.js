@@ -1,8 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const userController = require('../controller/user.controller')
 
-router.post('/add', userController.postAdd);
+const userController = require('../controller/user.controller')
+const validate = require('../validate/user.validate');
+
+router.post('/add', validate.postAdd, userController.postAdd);
 
 router.get('/', userController.index);
 

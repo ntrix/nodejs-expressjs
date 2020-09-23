@@ -2,7 +2,6 @@ const shortid = require('shortid')
 const db = require('../shared/db');
 const users = db.get('users').value();
 
-const validate = require('../validate/user.validate');
 
 module.exports = {
   
@@ -18,7 +17,7 @@ module.exports = {
   },
   
   postAdd: (req, res) => {
-    const errors = validate.postAdd(req);
+    const errors = req.locals.errors;
     if (errors.length) {
       res.render("users/index", {
         errors: errors,
