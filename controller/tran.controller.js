@@ -31,8 +31,10 @@ module.exports = {
   },
   
   complete: (req, res) => {
-    console.log(req.path, req.params.id);
-    db.get('trans').find({ id: req.params.id }).set('isComplete', true).write();
+    db.get('trans').find({ id: req.params.id }, (err, data) => {
+      if (err)
+        res.send(err)
+    }).set('isComplete', true).write();
     res.redirect('back');
   }  
 }

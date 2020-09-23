@@ -11,10 +11,13 @@ block content
     label Description:
       input(type='text' name='description' value=chosenBook.description)
     button.mt-3.btn.btn-primary(type='submit') Update this book
-  h3 Book list
-  ul
+  hr
+  table.table.table-lg.col
+    legend Book list
+    tr
+      th Book title
+      th(colspan='4') Description
     each book in books
-      li
-        div
-          b #{book.title} &nbsp;
-          p Description: #{book.description}
+      tr
+        td= book.title
+        td= book.description

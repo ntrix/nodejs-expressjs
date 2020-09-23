@@ -10,16 +10,19 @@ block content
     label Description:
       input(type='text' name='description')
     button.mt-3.btn.btn-primary(type='submit') Add to library
+  hr
   table.table.table-lg.col
-    legend Userlist
+    legend Book list
     tr
-      th Bool title
-      th Description
+      th Book title
+      th(colspan='4') Description
+      th
       th
     each book in books
       tr
         td= book.title
         td= book.description
         td
-          a.ml-3.btn.btn-sm.btn-warning(href='/books/upd/' + book.id) Edit
-          a.ml-3.btn.btn-sm.btn-danger(href='/books/del/' + book.id) Delete
+          a.btn.btn-sm.btn-warning(href='/books/upd/' + book.id) Edit
+        td
+          a.btn.btn-sm.btn-danger(href='/books/del/' + book.id) Delete
