@@ -14,5 +14,5 @@ ul
         span= tran.username
       span Status: #{tran.isComplete?'completed':'open'}
         if !tran.isComplete
-          a(href='/transaction/'+tran.id+'/complete')
+          a(href='/trans/'+tran.id+'/complete')
             button Close this one
