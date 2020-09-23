@@ -2,8 +2,7 @@ extends ../common
 block header
   h1 User management
   h3 Edit user's information &nbsp;
-  a(href='/users')
-    button Back to user management
+  a.btn.btn-secondary(href='/users') Back to user management
 block content
   form(action='/users/upd' method='post')
     input(type='text' name='id' value=chosenUser.id hidden)
@@ -15,7 +14,7 @@ block content
       label Email:
       div
         input(type='email' name='email' value=chosenUser.email)
-    button(type='submit') Update this user
+    button.mt-3.btn.btn-primary(type='submit') Update this user
   h3 User list
   ul
     each user in users

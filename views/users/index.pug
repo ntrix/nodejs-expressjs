@@ -2,8 +2,7 @@ extends ../common
 block header
   h1 Users management
   h3 Add user &nbsp;
-  a(href='/')
-    button Back to Homepage
+  a.btn.btn-secondary(href='/') Back to Homepage
 block content
   form(action='/users/add' method='post')
     div
@@ -14,15 +13,13 @@ block content
       label Email:
       div
         input(type='email' name='email')
-    button(type='submit') Add to user list
+    button.mt-3.btn.btn-primary(type='submit') Add to user list
   h3 User list
   ul
     each user in users
       li
         div
-          b #{user.username} &nbsp;
-          a(href='/users/upd/' + user.id)
-            button Edit
-          a(href='/users/del/' + user.id)
-              button Delete
+          b #{user.username}
+          a.ml-3.btn.btn-sm.btn-warning(href='/users/upd/' + user.id) Edit
+          a.text-right.btn.btn-sm.btn-danger(href='/users/del/' + user.id) Delete
           p Email: #{user.email}

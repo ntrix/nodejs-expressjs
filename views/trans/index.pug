@@ -4,7 +4,7 @@ block header
   h3 Transactions list
   a.btn.btn-secondary(href='/') Back to Homepage
 block content
-  a.btn.btn-success(href='/trans/create') Create a transaction
+  a.mb-3.btn.btn-primary(href='/trans/create') Create a transaction
   ul
     each tran in trans
       li
@@ -14,4 +14,4 @@ block content
           span= tran.username
         span Status: #{tran.isComplete?'completed':'open'}
           if !tran.isComplete
-            a.btn.btn-warning.ml-2(href='/trans/'+tran.id+'/complete') Close this one
+            a.ml-3.btn.btn-warning(href='/trans/'+tran.id+'/complete') Close this one

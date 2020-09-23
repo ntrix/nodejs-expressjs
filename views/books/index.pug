@@ -2,8 +2,7 @@ extends ../common
 block header
   h1 Library
   h3 Book management &nbsp;
-  a(href='/')
-    button Back to Homepage
+  a.btn.btn-secondary(href='/') Back to Homepage
 block content
   form(action='/books/add' method='post')
     div
@@ -14,7 +13,7 @@ block content
       label Description:
       div
         input(type='text' name='description')
-    button(type='submit') Add to library
+    button.mt-3.btn.btn-primary(type='submit') Add to library
   h3 Book list
   ul
     each book in books
