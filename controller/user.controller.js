@@ -17,7 +17,7 @@ module.exports = {
   },
   
   postAdd: (req, res) => {
-    const errors = req.locals.errors;
+    const errors = res.locals.errors;
     if (errors.length) {
       res.render("users/index", {
         errors: errors,
