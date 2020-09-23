@@ -33,7 +33,7 @@ module.exports = {
   complete: (req, res) => {
     db.get('trans').find({ id: req.params.id }, (err, data) => {
       if (err)
-        res.send(err)
+        res.send(err); //render error page
     }).set('isComplete', true).write();
     res.redirect('back');
   }  
