@@ -7,14 +7,14 @@ block header
 block content
   form(action='' method='post')
     label Select an user
-      select.col(name='userId')
+      select.form-control(name='userId')
         optgroup(label='Select an user')
         each user in users
           option(value=user.id) #{user.username}
     label Select a book
-      select.col(name='bookId')
+      select.form-control(name='bookId')
         optgroup(label='Select a book')
         each book in books
           option(value=book.id) #{book.title}
-      div.mt-3.text-center
-        button.btn.btn-success(type=submit) Create transaction
+      div.mt-3
+        button.col.btn.btn-success(type=submit) Create transaction
