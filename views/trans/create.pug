@@ -2,9 +2,10 @@ extends ../common
 block content
   h1 Transactions
   h3 Add new transactions &nbsp;
-    a(href='/trans')
-      button
-        b Back to transaction list
+  a(href='/trans')
+    button
+      b Back to transaction list
+  hr
   form(action='' method='post')
     select(name='userId')
       optgroup(label='Select an user')

@@ -1,9 +1,10 @@
 extends ../common
-block content
+block header
   h1 Users management
   h3 Add user &nbsp;
-    a(href='/')
-      button Back to Homepage
+  a(href='/')
+    button Back to Homepage
+block content
   form(action='/users/add' method='post')
     div
       label Username: 

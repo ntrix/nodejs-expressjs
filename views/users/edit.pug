@@ -1,9 +1,10 @@
 extends ../common
-block content
+block header
   h1 User management
   h3 Edit user's information &nbsp;
-    a(href='/users')
-      button Back to user management
+  a(href='/users')
+    button Back to user management
+block content
   form(action='/users/upd' method='post')
     input(type='text' name='id' value=chosenUser.id hidden)
     div
