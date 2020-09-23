@@ -19,9 +19,10 @@ module.exports = {
   
   postAdd: (req, res) => {
     const errors = validate.postAdd(req);
-    if (errors.length)
+    if (errors.length) {
+      console.log(errors)
       res.render("users/index", { errors: errors, users: users });
-    
+    }
     req.body.id = 'u' + shortid.generate();
     db.get('users').push(req.body).write();
     res.redirect('back');
