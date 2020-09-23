@@ -1,10 +1,11 @@
 extends ../common
 block header
-  h1 Transactions
-  h3 Transactions list
-  a.btn.btn-secondary(href='/') Back to Homepage
+  h1.col Transactions
+  div.col
+    h3 Transactions list
+    a.btn.btn-secondary(href='/') Back to Homepage
 block content
-  a.mb-3.btn.btn-primary(href='/trans/create') Create a transaction
+  a.col-4.mb-3.btn.btn-primary(href='/trans/create') Create a transaction
   table.table.table-lg.col
     tr
       th ID

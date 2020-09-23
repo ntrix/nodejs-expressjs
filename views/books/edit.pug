@@ -1,8 +1,9 @@
 extends ../common
 block header
-  h1 Library
-  h3 Edit book's information &nbsp;
-  a.btn.btn-secondary(href='/books') Back to book management
+  h1.col Library
+  div.col
+    h3 Edit book's information
+    a.btn.btn-secondary(href='/books') Back to book management
 block content
   form(action='/books/upd' method='post')
     input(type='text' name='id' value=chosenBook.id hidden)

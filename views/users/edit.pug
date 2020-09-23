@@ -1,8 +1,9 @@
 extends ../common
 block header
-  h1 User management
-  h3 Edit user's information &nbsp;
-  a.btn.btn-secondary(href='/users') Back to user management
+  h1.col User management
+  div.col
+    h3 Edit user's information &nbsp;
+    a.btn.btn-secondary(href='/users') Back to user management
 block content
   form(action='/users/upd' method='post')
     input(type='text' name='id' value=chosenUser.id hidden)
