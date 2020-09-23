@@ -14,4 +14,4 @@ block content
           span= tran.username
         span Status: #{tran.isComplete?'completed':'open'}
           if !tran.isComplete
-            a.ml-3.btn.btn-warning(href='/trans/'+tran.id+'/complete') Close this one
+            a.ml-3.btn.btn-sm.btn-warning(href='/trans/'+tran.id+'/complete') Close this one

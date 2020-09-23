@@ -19,9 +19,7 @@ block content
     each book in books
       li
         div
-          b #{book.title} &nbsp;
-          a(href='/books/upd/' + book.id)
-            button Edit
-          a(href='/books/del/' + book.id)
-              button Delete
+          b #{book.title}
+          a.ml-3.btn.btn-sm.btn-warning(href='/books/upd/' + book.id) Edit
+          a.ml-3.btn.btn-sm.btn-danger(href='/books/del/' + book.id) Delete
           p Description: #{book.description}
