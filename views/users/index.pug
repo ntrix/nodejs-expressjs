@@ -10,11 +10,13 @@ block content
     label Email:
       input(type='email' name='email')
     button.mt-3.btn.btn-primary(type='submit') Add to user list
-  h3 User list
-  ul
+  table.table.table-lg.col
+    legend Userlist
     each user in users
-      li
-        b= user.username
-        a.ml-3.btn.btn-sm.btn-warning(href='/users/upd/' + user.id) Edit
-        a.ml-3.btn.btn-sm.btn-danger(href='/users/del/' + user.id) Delete
-        p Email: #{user.email}
+      tr
+        td= user.username
+        td= user.email        
+        td
+          a.ml-3.btn.btn-sm.btn-warning(href='/users/upd/' + user.id) Edit
+        td
+          a.ml-3.btn.btn-sm.btn-danger(href='/users/del/' + user.id) Delete

@@ -10,6 +10,12 @@ block content
     label Description:
       input(type='text' name='description')
     button.mt-3.btn.btn-primary(type='submit') Add to library
+  table.table.table-lg.col
+    legend Userlist
+    each book in books
+      tr
+        td= book.title
+        td= book.description
   h3 Book list
   ul
     each book in books

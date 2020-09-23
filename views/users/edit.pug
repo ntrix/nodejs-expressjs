@@ -11,9 +11,9 @@ block content
     label Email:
       input(type='email' name='email' value=chosenUser.email)
     button.mt-3.btn.btn-primary(type='submit') Update this user
-  h3 User list
-  ul
+  table.table.table-lg.col
+    legend Userlist
     each user in users
-      li
-        b #{user.username} &nbsp;
-        p Email: #{user.email}
+      tr
+        td= user.username
+        td= user.email  
