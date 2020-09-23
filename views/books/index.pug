@@ -12,16 +12,14 @@ block content
     button.mt-3.btn.btn-primary(type='submit') Add to library
   table.table.table-lg.col
     legend Userlist
+    tr
+      th Bool title
+      th Description
+      th
     each book in books
       tr
         td= book.title
         td= book.description
-  h3 Book list
-  ul
-    each book in books
-      li
-        div
-          b #{book.title}
+        td
           a.ml-3.btn.btn-sm.btn-warning(href='/books/upd/' + book.id) Edit
           a.ml-3.btn.btn-sm.btn-danger(href='/books/del/' + book.id) Delete
-          p Description: #{book.description}

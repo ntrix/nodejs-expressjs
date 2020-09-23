@@ -17,7 +17,7 @@ block content
         td= tran.id
         td(colspan='4')= tran.title
         td= tran.username
-        td= tran.isComplete?'completed':'open'
+        td= tran.isComplete?'completed':'[ open ]'
         td
           if !tran.isComplete
             a.btn.btn-sm.btn-warning(href='/trans/'+tran.id+'/complete') Close
