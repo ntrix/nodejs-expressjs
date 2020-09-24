@@ -13,11 +13,11 @@ module.exports = {
     const errors = res.locals.errors;
     const email = req.body.email;
     const password = req.body.password;
+    const user = db.get('users').find({ email: email }).value();
     
-    const foundUser = db.get('users').find({ email: email }).value();
-    if (!foundUser)
+    if (!user)
       errors.push("User does not exist!")
-    else if (password !== foundUser.password)
+    else if (password !== user.password)
       errors.push("Password is missmatched")
     
     if (errors.length) {
@@ -27,7 +27,7 @@ module.exports = {
       });
       return;
     }
-    req.body.id = foundUser.id;
+    req.body.id = user.id;
     res.redirect('/trans');
   }
   
