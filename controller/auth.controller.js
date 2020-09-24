@@ -8,7 +8,7 @@ module.exports = {
     res.render("auth/login");
   },
   
-  postLogin: (req, res) => {
+  postLogin: (req, res, next) => {
     const errors = res.locals.errors;
     const foundUser = db.get('users').find({ email: req.body.email});
     
@@ -22,12 +22,10 @@ module.exports = {
         errors: errors,
         values: req.body
       });
-      errors.length = 0; //also reset res.locals.errors;
       return;
     }
     req.body.id = foundUser.value().id;
-    db.get('auth').push(req.body).write();
-    res.redirect('back');
+    next();
   }
   
 }

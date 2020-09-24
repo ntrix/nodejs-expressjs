@@ -6,7 +6,7 @@ block header
     a.btn.btn-secondary(href='/') Back to Homepage
     
 block content
-  form(action='/users/add' method='post')
+  form(action='/auth/login' method='post')
     label Email: 
       input(type='email' name='email' value= values? values.email: '')
     label Password:
