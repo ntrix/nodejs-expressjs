@@ -20,18 +20,18 @@ module.exports.postLogin = (req, res, next) => {
 
   if (!user)
     errors.push("User does not exist!")
-  else if (!bcrypt.compareSync(password, user.password)) {
-    errors.push("Password is missmatched")
-    
+  else if (password && !bcrypt.compareSync(password, user.password)) {
     foundUser.set('failAttempts', (user.failAttempts || 0) + 1).write();
-    
-    console.log(user.failAttempts, foundUser.value().failAttempts, db.get('users').find({ email: email }).value().failAttempts)
+    errors.push("Wrong password! " + user.failAttempts + " of 4 attempts.");
   }
 
   if (errors.length) {
     res.render("auth/login", { errors: errors, values: req.body });
     return;
   }
+  //user.failAttempts = 0;
+  foundUser.set('failAttempts', 0).write();
+  
   res.cookie('user-id', user.id);
   res.cookie('is-admin', user.isAdmin || false);
   res.redirect('/trans');
