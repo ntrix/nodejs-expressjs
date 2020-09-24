@@ -33,7 +33,6 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.use('/auth', authRoute);
 app.use('/users', authRoute, userRoute);
 app.use('/books', authRoute, bookRoute);
 app.use('/trans', authRoute, tranRoute);

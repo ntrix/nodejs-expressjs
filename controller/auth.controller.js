@@ -10,11 +10,15 @@ module.exports = {
   
   postLogin: (req, res, next) => {
     const errors = res.locals.errors;
-    const foundUser = db.get('users').find({ email: req.body.email});
-    if (!foundUser.value())
-      errors.push("User (user's email) does not exist!")
-    else if (req.body.password !== foundUser.value().password)
+    const email = req.body.email;
+    const password = req.body.password;
+    
+    const foundUser = db.get('users').find({ email: email }).value();
+    if (!foundUser)
+      errors.push("User does not exist!")
+    else if (password !== foundUser.password)
       errors.push("Password is missmatched")
+    
     if (errors.length) {
       res.render("auth/login", {
         errors: errors,
@@ -22,7 +26,7 @@ module.exports = {
       });
       return;
     }
-    req.body.id = foundUser.value().id;
+    req.body.id = foundUser.id;
     next();
   }
   
