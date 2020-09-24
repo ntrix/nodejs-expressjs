@@ -21,10 +21,7 @@ module.exports = {
       errors.push("Password is missmatched")
     
     if (errors.length) {
-      res.render("auth/login", {
-        errors: errors,
-        values: req.body
-      });
+      res.render("auth/login", { errors: errors, values: req.body });
       return;
     }
     req.body.id = user.id;
