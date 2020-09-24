@@ -13,8 +13,6 @@ module.exports = {
     else
       trans = db.get('trans').filter({ userId: req.cookies['user-id'] }).value();
     
-    //performance: hashmap
-    const userMap = {}
     let transList = trans.map(t => ({
       id: t.id,
       title: db.get('books').find({ id: t.bookId }).value().title,
