@@ -18,9 +18,9 @@ module.exports.postLogin = (req, res, next) => {
   const foundUser = db.get('users').find({ email: email });
   const user = foundUser.value();
   
-  if (user.wrongLoginCount >= 4)
-  
-  if (!user)
+  if (user.wrongLoginCount == 4)
+    errors.push("Too many fail attempts! Please try again in 24 hours or reset your password.");
+  else if (!user)
     errors.push("User does not exist!")
   else if (password && !bcrypt.compareSync(password, user.password)) {
     foundUser.set('wrongLoginCount', (user.wrongLoginCount || 0) + 1).write();
