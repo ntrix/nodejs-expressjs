@@ -24,7 +24,7 @@ module.exports.postLogin = (req, res, next) => {
   }
   res.cookie('user-id', user.id);
   res.cookie('is-admin', user.isAdmin || false);
-  console.log(res.locals.path)
-  res.redirect(req.locals.path || '/trans');
+  console.log({ req.cookies.path, res.cookies.path})
+  res.redirect(res.cookies.path);
 }
 

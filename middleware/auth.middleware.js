@@ -5,6 +5,6 @@ module.exports.requireAuth = (req, res, next) => {
     res.redirect('/auth/login');
     return;
   }
-  res.locals.path = req.path;
+  res.cookie('path', req.path);
   next();
 }
