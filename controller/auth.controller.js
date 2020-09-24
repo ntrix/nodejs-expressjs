@@ -9,22 +9,23 @@ module.exports = {
   },
   
   postLogin: (req, res) => {
-    const errors = [];//res.locals.errors
+    const errors = res.locals.errors;
     const foundUser = db.get('users').find({ email: req.body.email});
     
-    if (!foundUser)
+    if (!foundUser.value())
       errors.push("User (user's email) does not exist!")
-    else
+    if (foundUser.value().password !== req.body.password)
+      errors.push("Password is not matched")
       
     if (errors.length) {
       res.render("auth/login", {
         errors: errors,
         values: req.body
       });
-      errors.length = 0;
+      errors.length = 0; //also reset res.locals.errors;
       return;
     }
-    req.body.id = 'u' + shortid.generate();
+    req.body.id = foundUser.value().id;
     db.get('auth').push(req.body).write();
     res.redirect('back');
   }
