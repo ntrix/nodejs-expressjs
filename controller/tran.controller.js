@@ -7,11 +7,12 @@ const books = db.get('books').value();
 module.exports = {
 
   index: (req, res) => {
-    let trans;
-    if (req.cookies['is-admin'] === 'true')
-      trans = db.get('trans').value();
-    else
-      trans = db.get('trans').filter({ userId: req.cookies['user-id'] }).value();
+    const id = req.cookies['user-id']
+    let isAdmin = req.cookies['is-admin'] === 'true';
+    let trans = db.get('trans').value();
+    
+    if (!isAdmin)
+      trans = trans.filter(t => t.userId === id );
     
     let transList = trans.map(t => ({
       id: t.id,
@@ -19,7 +20,7 @@ module.exports = {
       username: db.get('users').find({ id: t.userId }).value().username,
       isComplete: t.isComplete
     }) );
-    res.render("trans/index", { trans: transList });
+    res.render("trans/index", { trans: transList, isAdmin: isAdmin});
   },
   
   create: (req, res) => {
