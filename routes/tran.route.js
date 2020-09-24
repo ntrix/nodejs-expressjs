@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const tranController = require('../controller/tran.controller');
+const authRoute = require('./routes/auth.route');
 
 router.get('/', tranController.index);
 
