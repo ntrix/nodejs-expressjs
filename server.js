@@ -3,7 +3,6 @@ const express = require("express");
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser');
 const shortid = require('shortid');
-//const userId = 'temp'+shortid.generate();
 
 const userRoute = require('./routes/user.route');
 const bookRoute = require('./routes/book.route');
@@ -19,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: false}));
 
 app.use(express.static("public"));
 
-app.use(cookieParser(shortid.generate() + shortid.generate()));
+app.use(cookieParser( [ shortid.generate(), shortid.generate() ] ));
 
 app.get("/", (req, res) => {
   res.render("index");
