@@ -21,7 +21,9 @@ module.exports.postLogin = (req, res, next) => {
     errors.push("User does not exist!")
   else if (!bcrypt.compareSync(password, user.password)) {
     errors.push("Password is missmatched")
-    db.get('users').
+    
+    let foundUser = db.get('users').find({ email: email });
+    foundUser.set('failAttempts', 1 + foundUser.value() + 1)
   }
 
   if (errors.length) {
