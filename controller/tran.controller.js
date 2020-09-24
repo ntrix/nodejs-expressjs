@@ -1,13 +1,13 @@
 const shortid = require('shortid');
 
 const db = require('../shared/db');
-const trans = db.get('trans').value();
 const users = db.get('users').value();
 const books = db.get('books').value();
 
 module.exports = {
 
   index: (req, res) => {
+    const trans = db.get('trans').value();
     var transList = trans.map(t => ({
       id: t.id,
       title: db.get('books').find({ id: t.bookId }).value().title,
