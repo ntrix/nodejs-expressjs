@@ -18,7 +18,7 @@ module.exports = {
   },
   
   create: (req, res) => {
-    res.render("trans/create", { users: users, books: books });
+      res.render("trans/create", { users: users, books: books });
   },
   
   complete: (req, res) => {

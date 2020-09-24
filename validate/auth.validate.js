@@ -16,5 +16,11 @@ module.exports = {
       res.locals.errors.push('Password is too long'); 
 
     next();
+  },
+  
+  isAdmin: (req, res, next) {
+    if (req.cookies['is-admin'] === 'true')
+      next();
+    //res.redirect('back')
   }
 }
