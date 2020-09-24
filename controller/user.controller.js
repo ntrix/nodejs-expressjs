@@ -24,6 +24,7 @@ module.exports = {
         values: req.body,
         users: users
       });
+      errors.length = 0;
       return;
     }
     req.body.id = 'u' + shortid.generate();
