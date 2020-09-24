@@ -33,14 +33,14 @@
       "password": "$2a$10$ilO14griNhkwb/iIrLt23eTjzL4TyT4U9XJ9jV/FdDGjEx.31TkeS",
       "email": "admin@admin.com",
       "isAdmin": true,
-      "failAttempts": 10
+      "wrongLoginCount": 2
     },
     {
       "id": "uaeiasdbnH",
       "username": "tester",
       "password": "$2a$10$ilO14griNhkwb/iIrLt23eTjzL4TyT4U9XJ9jV/FdDGjEx.31TkeS",
       "email": "tester@test.dev",
-      "failAttempts": 9
+      "wrongLoginCount": 3
     },
     {
       "username": "user2",

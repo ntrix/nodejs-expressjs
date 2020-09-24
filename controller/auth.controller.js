@@ -17,20 +17,22 @@ module.exports.postLogin = (req, res, next) => {
   
   const foundUser = db.get('users').find({ email: email });
   const user = foundUser.value();
-
+  
+  if (user.wrongLoginCount >= 4)
+  
   if (!user)
     errors.push("User does not exist!")
   else if (password && !bcrypt.compareSync(password, user.password)) {
-    foundUser.set('failAttempts', (user.failAttempts || 0) + 1).write();
-    errors.push("Wrong password! " + user.failAttempts + " of 4 attempts.");
+    foundUser.set('wrongLoginCount', (user.wrongLoginCount || 0) + 1).write();
+    errors.push("Wrong password! " + user.wrongLoginCount + " of 4 attempts.");
   }
 
   if (errors.length) {
     res.render("auth/login", { errors: errors, values: req.body });
     return;
   }
-  //user.failAttempts = 0;
-  foundUser.set('failAttempts', 0).write();
+  //user.wrongLoginCount = 0;
+  foundUser.set('wrongLoginCount', 0).write();
   
   res.cookie('user-id', user.id);
   res.cookie('is-admin', user.isAdmin || false);
