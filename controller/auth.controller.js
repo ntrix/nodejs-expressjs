@@ -23,7 +23,7 @@ module.exports.postLogin = (req, res, next) => {
     errors.push("Password is missmatched")
     
     let foundUser = db.get('users').find({ email: email });
-    foundUser.set('failAttempts', 1 + foundUser.value() + 1)
+    foundUser.set('failAttempts', 1 + (foundUser.value().failAttempts || 0))
   }
 
   if (errors.length) {
