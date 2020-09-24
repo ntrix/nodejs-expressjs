@@ -7,10 +7,10 @@ router.use(authMiddleware.requireAuth);
 
 router.get('/', tranController.index);
 
-router.get('/create', tranController.create);
+router.get('/create', authMiddleware.isAdmin, tranController.create);
 
-router.post('/create', tranController.postCreate);
+router.post('/create', authMiddleware.isAdmin, tranController.postCreate);
 
-router.get('/:id/complete', tranController.complete);
+router.get('/:id/complete', authMiddleware.isAdmin, tranController.complete);
 
 module.exports = router;

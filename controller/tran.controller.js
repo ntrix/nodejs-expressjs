@@ -7,8 +7,10 @@ const books = db.get('books').value();
 module.exports = {
 
   index: (req, res) => {
-    const trans = db.get('trans').value();
-    var transList = trans.map(t => ({
+    if (req.cookieslet trans = db.get('trans').value();
+    
+    
+    let transList = trans.map(t => ({
       id: t.id,
       title: db.get('books').find({ id: t.bookId }).value().title,
       username: db.get('users').find({ id: t.userId }).value().username,
