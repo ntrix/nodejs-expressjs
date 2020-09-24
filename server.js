@@ -21,8 +21,11 @@ app.use(bodyParser.urlencoded({ extended: false}));
 app.use(express.static("public"));
 
 app.use(cookieParser(), (req, res, next) => {
-  if (!req.cookies.length) console.log(true);
-  console.log('Cookies: ', req.cookies)
+  if (!req.cookies['user-id']) {
+    res.cookie('user-id', userId);
+    console.log('No cookie found, set cookie, cookie count: ', cookieCount = 0);
+  } else
+    console.log(req.cookies, ': ', ++cookieCount)
   next();
 })
 app.get("/", (req, res) => {
