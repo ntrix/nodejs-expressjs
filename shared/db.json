@@ -30,14 +30,14 @@
     {
       "id": "uaei7MabnH",
       "username": "admin",
-      "password": "4297f44b13955235245b2497399d7a93",
+      "password": "$2a$10$ilO14griNhkwb/iIrLt23eTjzL4TyT4U9XJ9jV/FdDGjEx.31TkeS",
       "email": "admin@admin.com",
       "isAdmin": true
     },
     {
       "id": "uaeiasdbnH",
       "username": "tester",
-      "password": "4297f44b13955235245b2497399d7a93",
+      "password": "$2a$10$ilO14griNhkwb/iIrLt23eTjzL4TyT4U9XJ9jV/FdDGjEx.31TkeS",
       "email": "tester@test.dev"
     },
     {

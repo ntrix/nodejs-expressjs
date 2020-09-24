@@ -1,5 +1,7 @@
 const shortid = require('shortid')
 const md5 = require('md5');
+const bcrypt = require('bcryptjs');
+const salt = bcrypt.genSaltSync(10);
 
 const db = require('../shared/db');
 const users = db.get('users').value();
@@ -12,6 +14,10 @@ module.exports.postLogin = (req, res, next) => {
   const errors = res.locals.errors;
   const email = req.body.email;
   const password = md5(req.body.password);
+  
+  //const hash = bcrypt.hashSync(req.body.password, salt);
+  //console.log(hash);
+  
   const user = db.get('users').find({ email: email }).value();
 
   if (!user)
