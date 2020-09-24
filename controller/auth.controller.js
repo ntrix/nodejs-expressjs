@@ -11,12 +11,10 @@ module.exports = {
   postLogin: (req, res, next) => {
     const errors = res.locals.errors;
     const foundUser = db.get('users').find({ email: req.body.email});
-    
     if (!foundUser.value())
       errors.push("User (user's email) does not exist!")
-    if (foundUser.value().password !== req.body.password)
-      errors.push("Password is not matched")
-      
+    else if (req.body.password !== foundUser.value().password)
+      errors.push("Password is missmatched")
     if (errors.length) {
       res.render("auth/login", {
         errors: errors,
