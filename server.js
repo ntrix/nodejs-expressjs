@@ -33,8 +33,8 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.use('/users', authRoute, userRoute);
-app.use('/books', authRoute, bookRoute);
+app.use('/users', userRoute);
+app.use('/books', bookRoute);
 app.use('/trans', authRoute, tranRoute);
 
 const listener = app.listen(process.env.PORT, () => {

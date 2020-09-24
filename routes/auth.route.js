@@ -4,7 +4,7 @@ const validate = require('../validate/auth.validate');
 
 const authController = require('../controller/auth.controller')
 
-router.post('/login', validate.postLogin, authController.postLogin);
+router.post(validate.postLogin, authController.postLogin);
 
 router.use(authController.login);
 

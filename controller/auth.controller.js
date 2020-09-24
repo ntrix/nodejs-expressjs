@@ -27,7 +27,7 @@ module.exports = {
       return;
     }
     req.body.id = foundUser.id;
-    next();
+    res.redirect('/trans');
   }
   
 }
