@@ -29,26 +29,32 @@
   "users": [
     {
       "id": "uaei7MabnH",
-      "username": "Admin",
-      "email": "admin@admin.com"
+      "username": "admin",
+      "password": "123123",
+      "email": "admin@admin.com",
+      "isAdmin": true
     },
     {
       "id": "uaeiasdbnH",
       "username": "tester",
+      "password": "123123",
       "email": "tester@test.dev"
     },
     {
       "username": "user2",
+      "password": "123123",
       "email": "tqw@test.org",
       "id": "u6Q6hAHSuU"
     },
     {
       "username": "dev4",
+      "password": "123123",
       "email": "tq44@test.org",
       "id": "uVQpjVI75i"
     },
     {
       "username": "customer3",
+      "password": "123123",
       "email": "cust@customer.org",
       "id": "udRQ230A8P"
     }

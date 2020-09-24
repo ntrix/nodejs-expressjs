@@ -7,6 +7,7 @@ const shortid = require('shortid');
 const userRoute = require('./routes/user.route');
 const bookRoute = require('./routes/book.route');
 const tranRoute = require('./routes/tran.route');
+const authRoute = require('./routes/auth.route');
 
 const app = express();
 
@@ -32,6 +33,7 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+app.use('/auth', authRoute);
 app.use('/users', userRoute);
 app.use('/books', bookRoute);
 app.use('/trans', tranRoute);
