@@ -13,4 +13,6 @@ block content
       input(type='password' name='password')
     button.mt-3.btn.btn-primary(type='submit') Login
   hr
+  each error in errors || []
+    p.alert.alert-danger= error
 
