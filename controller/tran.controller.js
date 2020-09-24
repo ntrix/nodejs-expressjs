@@ -8,8 +8,8 @@ module.exports = {
 
   index: (req, res) => {
     const id = req.signedCookies.userId;
-    const isAdmin = req.signedCookies.isAdmin;
-    console.log(id, isAdmin);
+    const isAdmin = +req.signedCookies.isAdmin;
+    console.log(typeof id, typeof isAdmin);
     let trans = db.get('trans').value();
     
     if (!isAdmin)
