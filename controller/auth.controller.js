@@ -1,4 +1,5 @@
 const shortid = require('shortid')
+const md5 = require('md5');
 
 const db = require('../shared/db');
 const users = db.get('users').value();
@@ -10,7 +11,7 @@ module.exports.login = (req, res) => {
 module.exports.postLogin = (req, res, next) => {
   const errors = res.locals.errors;
   const email = req.body.email;
-  const password = req.body.password;
+  const password = md5(req.body.password);
   const user = db.get('users').find({ email: email }).value();
 
   if (!user)

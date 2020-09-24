@@ -1,5 +1,5 @@
 {
-  "name": "express-8-book-management-3",
+  "name": "express-16-book-management-1",
   "version": "0.0.1",
   "description": "A simple Node app built on Express, instantly up and running.",
   "main": "server.js",
@@ -12,7 +12,8 @@
     "express": "^4.17.1",
     "lowdb": "^1.0.0",
     "pug": "^3.0.0",
-    "shortid": "^2.2.15"
+    "shortid": "^2.2.15",
+    "md5": "^2.3.0"
   },
   "engines": {
     "node": "12.x"

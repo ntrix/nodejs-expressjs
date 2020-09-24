@@ -30,37 +30,37 @@
     {
       "id": "uaei7MabnH",
       "username": "admin",
-      "password": "123123",
+      "password": "4297f44b13955235245b2497399d7a93",
       "email": "admin@admin.com",
       "isAdmin": true
     },
     {
       "id": "uaeiasdbnH",
       "username": "tester",
-      "password": "123123",
+      "password": "4297f44b13955235245b2497399d7a93",
       "email": "tester@test.dev"
     },
     {
       "username": "user2",
-      "password": "123123",
+      "password": "4297f44b13955235245b2497399d7a93",
       "email": "tqw@test.org",
       "id": "u6Q6hAHSuU"
     },
     {
       "username": "dev4",
-      "password": "123123",
+      "password": "4297f44b13955235245b2497399d7a93",
       "email": "tq44@test.org",
       "id": "uVQpjVI75i"
     },
     {
       "username": "customer3",
-      "password": "123123",
+      "password": "4297f44b13955235245b2497399d7a93",
       "email": "cust@customer.org",
       "id": "udRQ230A8P"
     },
     {
       "username": "tester2",
-      "password": "123123",
+      "password": "4297f44b13955235245b2497399d7a93",
       "id": "uelt-EKU_2"
     }
   ],
