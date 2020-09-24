@@ -15,15 +15,17 @@ module.exports.postLogin = (req, res, next) => {
   const password = req.body.password;
   //const hash = bcrypt.hashSync(req.body.password, salt);
   
-  const user = db.get('users').find({ email: email }).value();
+  const foundUser = db.get('users').find({ email: email });
+  const user = foundUser.value();
 
   if (!user)
     errors.push("User does not exist!")
   else if (!bcrypt.compareSync(password, user.password)) {
     errors.push("Password is missmatched")
     
-    let foundUser = db.get('users').find({ email: email });
-    foundUser.set('failAttempts', 1 + (foundUser.value().failAttempts || 0))
+    foundUser.set('failAttempts', (user.failAttempts || 0) + 1).write();
+    
+    console.log(user.failAttempts, foundUser.value().failAttempts, db.get('users').find({ email: email }).value().failAttempts)
   }
 
   if (errors.length) {

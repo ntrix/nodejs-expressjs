@@ -32,13 +32,15 @@
       "username": "admin",
       "password": "$2a$10$ilO14griNhkwb/iIrLt23eTjzL4TyT4U9XJ9jV/FdDGjEx.31TkeS",
       "email": "admin@admin.com",
-      "isAdmin": true
+      "isAdmin": true,
+      "failAttempts": 2
     },
     {
       "id": "uaeiasdbnH",
       "username": "tester",
       "password": "$2a$10$ilO14griNhkwb/iIrLt23eTjzL4TyT4U9XJ9jV/FdDGjEx.31TkeS",
-      "email": "tester@test.dev"
+      "email": "tester@test.dev",
+      "failAttempts": 5
     },
     {
       "username": "user2",
