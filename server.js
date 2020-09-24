@@ -11,7 +11,7 @@ const authRoute = require('./routes/auth.route');
 
 const app = express();
 
-const userId = shortid.generate();
+const userId = 'temp'+shortid.generate();
 let cookieCount = 0;
 
 app.set('view engine', 'pug');

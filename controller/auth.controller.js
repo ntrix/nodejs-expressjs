@@ -1,19 +1,12 @@
 const shortid = require('shortid')
 const db = require('../shared/db');
-const auth = db.get('auth').value();
+const users = db.get('users').value();
 
 
 module.exports = {
   
   index: (req, res) => {
-    res.render("auth/index", { auth: auth })
-  },
-  
-  update: (req, res) => {
-    res.render('auth/edit', {
-      auth: auth,
-      chosenUser: auth.find(u => u.id === req.params.id)
-    });
+    res.render("auth/index")
   },
   
   postLogin: (req, res) => {
@@ -21,8 +14,7 @@ module.exports = {
     if (errors.length) {
       res.render("auth/index", {
         errors: errors,
-        values: req.body,
-        auth: auth
+        values: req.body
       });
       return;
     }
