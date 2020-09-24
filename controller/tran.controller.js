@@ -7,9 +7,14 @@ const books = db.get('books').value();
 module.exports = {
 
   index: (req, res) => {
-    if (req.cookieslet trans = db.get('trans').value();
+    let trans;
+    if (req.cookies['is-admin'] === 'true')
+      trans = db.get('trans').value();
+    else
+      trans = db.get('trans').filter({ userId: req.cookies['user-id'] }).value();
     
-    
+    //performance: hashmap
+    const userMap = {}
     let transList = trans.map(t => ({
       id: t.id,
       title: db.get('books').find({ id: t.bookId }).value().title,
