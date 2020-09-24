@@ -7,8 +7,8 @@ block header
     
 block content
   form(action='/users/add' method='post')
-    label Username: 
-      input(type='text' name='username' value= values? values.username: '')
+    label Email: 
+      input(type='email' name='email' value= values? values.email: '')
     label Password:
       input(type='password' name='password')
     button.mt-3.btn.btn-primary(type='submit') Login

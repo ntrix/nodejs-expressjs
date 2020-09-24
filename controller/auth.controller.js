@@ -5,14 +5,14 @@ const users = db.get('users').value();
 
 module.exports = {
   
-  index: (req, res) => {
-    res.render("auth/index")
+  login: (req, res) => {
+    res.render("auth/login")
   },
   
   postLogin: (req, res) => {
     const errors = res.locals.errors;
     if (errors.length) {
-      res.render("auth/index", {
+      res.render("auth/login", {
         errors: errors,
         values: req.body
       });
