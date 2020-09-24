@@ -1,6 +1,6 @@
 extends ../common
 block header
-  h1.col Users authentification
+  h1.col My account
   div.col
     h3.text-danger User login
     a.btn.btn-secondary(href='/') Back to Homepage
@@ -15,4 +15,3 @@ block content
   hr
   each error in errors || []
     p.alert.alert-danger= error
-
