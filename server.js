@@ -34,9 +34,9 @@ app.get("/", (req, res) => {
 });
 
 app.use('/auth', authRoute);
-app.use('/users', userRoute);
-app.use('/books', bookRoute);
-app.use('/trans', tranRoute);
+app.use('/users', authRoute, userRoute);
+app.use('/books', authRoute, bookRoute);
+app.use('/trans', authRoute, tranRoute);
 
 const listener = app.listen(process.env.PORT, () => {
   console.log("Your app is listening on port " + listener.address().port);
