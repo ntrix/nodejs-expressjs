@@ -14,15 +14,4 @@ block content
       input(type='email' name='email' value= values? values.email: '')
     button.mt-3.btn.btn-primary(type='submit') Add to user list
   hr
-  each error in errors || []
-    p.alert.alert-danger= error
-  table.table.table-lg.col
-    legend User list
-    each user in users
-      tr
-        td= user.username
-        td= user.email        
-        td
-          a.ml-3.btn.btn-sm.btn-warning(href='/users/upd/' + user.id) Edit
-        td
-          a.ml-3.btn.btn-sm.btn-danger(href='/users/del/' + user.id) Delete
+
