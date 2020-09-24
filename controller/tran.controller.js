@@ -7,8 +7,9 @@ const books = db.get('books').value();
 module.exports = {
 
   index: (req, res) => {
-    const id = req.cookies.userId
-    const isAdmin = req.cookies.isAdmin;
+    const id = req.signedCookies.userId;
+    const isAdmin = req.signedCookies.isAdmin;
+    console.log(id, isAdmin);
     let trans = db.get('trans').value();
     
     if (!isAdmin)

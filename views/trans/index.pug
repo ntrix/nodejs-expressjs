@@ -25,7 +25,8 @@ block content
         td= tran.username
         td= tran.isComplete?'completed':'[ open ]'
         td
-          if !tran.isComplete
-            a.btn.btn-sm.btn-warning(href='/trans/'+tran.id+'/complete') Close
-          else
-            button.btn.btn-sm.btn-light(disabled) closed
+          if isAdmin
+            if !tran.isComplete
+              a.btn.btn-sm.btn-warning(href='/trans/'+tran.id+'/complete') Close
+            else
+              button.btn.btn-sm.btn-light(disabled) closed
