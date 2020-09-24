@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: false}));
 
 app.use(express.static("public"));
 
-app.use(cookieParser());
+app.use(cookieParser('mySecretCookies'));
 
 app.get("/", (req, res) => {
   res.render("index");
