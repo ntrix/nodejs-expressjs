@@ -2,7 +2,7 @@ const db = require('../shared/db');
 
 module.exports = {
   requireAuth: (req, res, next) => {
-    if (!req.cookies['user-id']) {
+    if (!req.cookies.userId) {
       res.redirect('/auth/login');
       return;
     }
@@ -10,7 +10,7 @@ module.exports = {
   },
   
   isAdmin: (req, res, next) => {
-    if (req.cookies['is-admin'] === 'true')
+    if (req.cookies.isAdmin)
       next();
     //else res.redirect('back');
   }

@@ -7,8 +7,8 @@ const books = db.get('books').value();
 module.exports = {
 
   index: (req, res) => {
-    const id = req.cookies['user-id']
-    let isAdmin = req.cookies['is-admin'] === 'true';
+    const id = req.cookies.userId
+    const isAdmin = req.cookies.isAdmin;
     let trans = db.get('trans').value();
     
     if (!isAdmin)
@@ -24,7 +24,7 @@ module.exports = {
   },
   
   create: (req, res) => {
-      res.render("trans/create", { users: users, books: books });
+    res.render("trans/create", { users: users, books: books });
   },
   
   complete: (req, res) => {

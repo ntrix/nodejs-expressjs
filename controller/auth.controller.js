@@ -34,10 +34,8 @@ module.exports.postLogin = (req, res, next) => {
   //user.wrongLoginCount = 0;
   foundUser.set('wrongLoginCount', 0).write();
   
-  res.signedCookies({
-    'user-id': user.id,
-    'is-admin': user.isAdmin || false
-  }, 'mySecretCookies');
+  res.cookie('userId', user.id);
+  res.cookie('isAdmin', user.isAdmin || 0);
   res.redirect('/trans');
 }
 
