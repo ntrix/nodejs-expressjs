@@ -36,6 +36,10 @@ input {
   box-shadow: 0 0 0.3rem 0.5rem #0002;
 }
 
+.btn[disabled]:hover {
+  box-shadow: none;
+}
+
 footer {
   margin-top: 3em;
   padding-top: 1.5em;
