@@ -2,11 +2,10 @@ extends ../common
 block header
   h1.col Users management
   div.col
-    h3 Add user &nbsp;
+    h3 Add user
     a.btn.btn-secondary(href='/') Back to Homepage
     
 block content
-
   form(action='/users/add' method='post')
     label Username: 
       input(type='text' name='username' value= values? values.username: '')

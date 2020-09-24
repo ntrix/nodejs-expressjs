@@ -1,17 +1,16 @@
 extends ../common
 block header
-  h1.col Users management
+  h1.col Users authentification
   div.col
-    h3 Add user &nbsp;
+    h3 User login
     a.btn.btn-secondary(href='/') Back to Homepage
     
 block content
-
   form(action='/users/add' method='post')
     label Username: 
       input(type='text' name='username' value= values? values.username: '')
-    label Email:
-      input(type='email' name='email' value= values? values.email: '')
-    button.mt-3.btn.btn-primary(type='submit') Add to user list
+    label Password:
+      input(type='password' name='password')
+    button.mt-3.btn.btn-primary(type='submit') Login
   hr
 

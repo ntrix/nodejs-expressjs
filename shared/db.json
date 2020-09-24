@@ -57,6 +57,11 @@
       "password": "123123",
       "email": "cust@customer.org",
       "id": "udRQ230A8P"
+    },
+    {
+      "username": "tester2",
+      "password": "123123",
+      "id": "uelt-EKU_2"
     }
   ],
   "trans": [

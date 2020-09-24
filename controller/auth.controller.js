@@ -16,7 +16,7 @@ module.exports = {
     });
   },
   
-  postAdd: (req, res) => {
+  postLogin: (req, res) => {
     const errors = res.locals.errors;
     if (errors.length) {
       res.render("auth/index", {
@@ -29,18 +29,6 @@ module.exports = {
     req.body.id = 'u' + shortid.generate();
     db.get('auth').push(req.body).write();
     res.redirect('back');
-  },
-  
-  postUpdate: (req, res) => {
-    db.get('auth').find({ id: req.body.id })
-      .assign(req.body)
-      .write();
-    res.redirect(req.baseUrl);
-  },
-  
-  delete: (req, res) => {
-    db.get('auth').remove({ id: req.params.id }).write();
-    res.redirect(req.baseUrl);
   }
   
 }
