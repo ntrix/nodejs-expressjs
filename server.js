@@ -1,5 +1,8 @@
 const express = require("express");
+
 const bodyParser = require('body-parser')
+const cookieParser = require('cookie-parser');
+const shortid = require('shortid');
 
 const userRoute = require('./routes/user.route');
 const bookRoute = require('./routes/book.route');
@@ -14,7 +17,10 @@ app.use(bodyParser.urlencoded({ extended: false}));
 
 app.use(express.static("public"));
 
+const userId = shortid.generate();
+
 app.get("/", (req, res) => {
+  res.cookie('user',)
   res.render("index");
 });
 
