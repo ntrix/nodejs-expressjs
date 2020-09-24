@@ -1,5 +1,4 @@
 const shortid = require('shortid')
-const md5 = require('md5');
 const bcrypt = require('bcryptjs');
 const salt = bcrypt.genSaltSync(10);
 
@@ -13,17 +12,17 @@ module.exports.login = (req, res) => {
 module.exports.postLogin = (req, res, next) => {
   const errors = res.locals.errors;
   const email = req.body.email;
-  const password = md5(req.body.password);
-  
+  const password = req.body.password;
   //const hash = bcrypt.hashSync(req.body.password, salt);
-  //console.log(hash);
   
   const user = db.get('users').find({ email: email }).value();
 
   if (!user)
     errors.push("User does not exist!")
-  else if (password !== user.password)
+  else if (!bcrypt.compareSync(password, user.password)) {
     errors.push("Password is missmatched")
+    db.get('users').
+  }
 
   if (errors.length) {
     res.render("auth/login", { errors: errors, values: req.body });
