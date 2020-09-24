@@ -10,6 +10,9 @@ const tranRoute = require('./routes/tran.route');
 
 const app = express();
 
+const userId = shortid.generate();
+let cookieCount = 0;
+
 app.set('view engine', 'pug');
 app.set('views', './views');
 
@@ -17,10 +20,12 @@ app.use(bodyParser.urlencoded({ extended: false}));
 
 app.use(express.static("public"));
 
-const userId = shortid.generate();
-
+app.use(cookieParser(), (req, res, next) => {
+  if (!req.cookies.length) console.log(true);
+  console.log('Cookies: ', req.cookies)
+  next();
+})
 app.get("/", (req, res) => {
-  res.cookie('user',)
   res.render("index");
 });
 
